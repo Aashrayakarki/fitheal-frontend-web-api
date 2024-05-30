@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
+import { loginUserApi } from '../../apis/Api'
 
-const Login = () => {
+const Loginpage = () => {
 
     // Making a use sate
     const [email, setEmail] = useState('')
@@ -46,9 +47,8 @@ const Login = () => {
                 toast.error(res.data.message)
             } else {
                 toast.success(res.data.message)
-
-
                 localStorage.setItem('token', res.data.token);
+
                 const convertedData = JSON.stringify(res.data.userData);
                 localStorage.setItem('userData', convertedData);
 
@@ -79,4 +79,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Loginpage;
