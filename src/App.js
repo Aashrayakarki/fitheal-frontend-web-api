@@ -5,13 +5,11 @@ import Homepage from './pages/homepage/Homepage';
 import Registerpage from './pages/register/Registerpage';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
-import Navbar from './components/Navbar/Navbar';
 import Loginpage from './pages/login/Loginpage';
 
 function App() {
   return (
     <Router>
-      <Navbar/>
       <ToastContainer/>
       <Routes>
         <Route path= '/' element={<Homepage/>}/>

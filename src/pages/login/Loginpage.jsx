@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import { loginUserApi } from '../../apis/Api'
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './Loginpage.css'
 
 const Loginpage = () => {
 
@@ -56,26 +60,51 @@ const Loginpage = () => {
         })
     }
 
+    // Slider settings
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
+
     return (
-        <>
-            <div className="container mt-2">
-                <h1>Login Page</h1>
-                <form className="w-50">
+            <div className='login-container'>
+                 <div className="top-bar">
+                <img src="assets/images/fitheal.png" alt="Logo" className="top-logo"/>
+            </div>
+                <div className="login-form-container">
+                    <h1>Login</h1>
+                    <form className="login-form">
 
-                    <label className="mt-2">email :{email}</label>
-                    <input onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" placeholder="enter your email" />
-                    {emailError && <p className="text-danger">{emailError}</p>}
+                        <label className="mt-2">email :{email}</label>
+                        <input onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" placeholder="enter your email" />
+                        {emailError && <p className="text-danger">{emailError}</p>}
 
-                    <label className="mt-2">Password :{password}</label>
-                    <input onChange={(e) => setPassword(e.target.value)} type="text" className="form-control" placeholder="enter your password" />
-                    {passwordError && <p className="text-danger">{passwordError}</p>}
+                        <label className="mt-2">Password :{password}</label>
+                        <input onChange={(e) => setPassword(e.target.value)} type="text" className="form-control" placeholder="enter your password" />
+                        {passwordError && <p className="text-danger">{passwordError}</p>}
 
-                    <button onClick={handleSubmit} className="btn btn-dark mt-3 w-100">Login</button>
-                </form>
-
+                        <button onClick={handleSubmit} className="btn btn-dark mt-3 w-100">Login</button>
+                    </form>
+                </div>
+                <div className="login-slider-container">
+                    <Slider {...settings}>
+                        <div>
+                            <img src="assets/images/slider1.png" alt="Slide 1" />
+                        </div>
+                        <div>
+                            <img src="assets/images/slider2.png" alt="Slide 2" />
+                        </div>
+                        <div>
+                            <img src="assets/images/vultures.png" alt="Slide 3" />
+                        </div>
+                    </Slider>
+                </div>
             </div>
 
-        </>
     )
 }
 
