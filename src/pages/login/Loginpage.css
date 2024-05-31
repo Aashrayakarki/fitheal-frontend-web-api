@@ -31,9 +31,10 @@ body, html {
 
 .login-form-container {
     flex: 1;
-    max-width: 600px;
-    margin-right: 100px;
+    max-width: 500px;
     margin-top: 0px;
+    margin-left: 40px;
+    margin-right: 100px;
 }
 
 .login-slider-container {
@@ -165,7 +166,7 @@ height: 15px;
     display: flex;
     align-items: center;
     margin: 20px 0;
-    width: 600px;
+    width: 500px;
 }
 
 .login-separator .line {
@@ -184,7 +185,7 @@ height: 15px;
     justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 600px;
+    width: 500px;
 }
 
 .facebook-btn {

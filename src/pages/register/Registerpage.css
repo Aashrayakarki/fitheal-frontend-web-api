@@ -32,7 +32,8 @@ body, html {
 .register-form-container {
     flex: 1;
     max-width: 1200px;
-    margin: 0; /* Adjusted to remove unnecessary margins */
+    margin: 0; 
+    margin-left: 40px;
 }
 
 form {
