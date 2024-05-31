@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
-import {EyeFilled, EyeInvisibleFilled, FacebookFilled, FacebookOutlined, GoogleCircleFilled, GoogleOutlined, GoogleSquareFilled} from '@ant-design/icons';
+import {EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
 import { Button } from "antd";
 
 
@@ -15,7 +15,7 @@ const Loginpage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [rememberMe, setRememberMe] = useState(false);
-    const [passwordVisible, setPasswordVisible] = useState(true);
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
 
     // Making an error state
@@ -122,13 +122,13 @@ const Loginpage = () => {
                     Don't have an account? <a href="/register">Sign Up</a>
                 </div>
 
-                <div className="separator">
+                <div className="login-separator">
                         <div className="line"></div>
                         <div className="or-text">or login with</div>
                         <div className="line"></div>
                     </div>
 
-                    <div className="social-buttons">
+                    <div className="login-social-buttons">
                         <Button type='primary' icon={<FacebookFilled/>} className="facebook-btn">
                             Login with Facebook
                         </Button>
@@ -147,7 +147,7 @@ const Loginpage = () => {
                         <img src="assets/images/slider2.png" alt="Slide 2" />
                     </div>
                     <div>
-                        <img src="assets/images/vultures.png" alt="Slide 3" />
+                        <img src="assets/images/gym2.jpg" alt="Slide 3" />
                     </div>
                 </Slider>
             </div>
