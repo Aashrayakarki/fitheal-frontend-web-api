@@ -54,12 +54,13 @@ body, html {
     flex: 1;
     max-width: 600px;
     margin-right: 100px;
-    margin-top: -200px;
+    margin-top: 0px;
 }
 
 .login-slider-container {
     flex: 1;
-    max-width: 600px;
+    max-width: 400px;
+    height: 600px;
 }
 
 .login-form {
@@ -69,8 +70,8 @@ body, html {
 .login-form input {
     width: 100%;
     margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 9px;
+    border: 2px solid #ccc;
     border-radius: 8px;
 }
 
@@ -93,7 +94,7 @@ body, html {
 }
 
 .btn.orange-btn {
-    background-color: orange;
+    background-color: #FF914D;
     color: white;
 }
 
@@ -109,8 +110,8 @@ body, html {
 }
 
 .login-slider-container img {
-    width: 90%;
-    height: 600px;
+    width: 100%;
+    height: 570px;
     object-fit: cover;
     border-radius: 20px;
 }
@@ -120,6 +121,7 @@ body, html {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .remember-me {
@@ -128,11 +130,19 @@ body, html {
 }
 
 .remember-me input {
-    margin-right: 5px; /* Adjusted for better spacing */
+    margin-right: 5px;
+    width: 20px;
+    height: 18px;
 }
 
+.remember-me label {
+height: 15px;
+}
+
+
+
 .forgot-password {
-    color: #f5b428;
+    color: #FF914D;
     text-decoration: none;
     cursor: pointer;
 }
@@ -148,10 +158,42 @@ body, html {
 }
 
 .signup-link a {
-    color: #f5b428;
+    color: #FF914D;
     text-decoration: none;
 }
 
 .signup-link a:hover {
     text-decoration: underline;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.separator .line {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.separator .or-text {
+    margin: 0 10px;
+    color: #999;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.facebook-btn {
+    width: 48%;
+}
+
+.google-btn {
+    width: 48%;
 }

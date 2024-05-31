@@ -5,7 +5,8 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
-import {EyeFilled, EyeInvisibleFilled, EyeInvisibleOutlined, EyeOutlined} from '@ant-design/icons';
+import {EyeFilled, EyeInvisibleFilled, FacebookFilled, FacebookOutlined, GoogleCircleFilled, GoogleOutlined, GoogleSquareFilled} from '@ant-design/icons';
+import { Button } from "antd";
 
 
 const Loginpage = () => {
@@ -81,9 +82,11 @@ const Loginpage = () => {
                 <img src="assets/images/fitheal.png" alt="Logo" className="top-logo" />
             </div>
             <div className="login-form-container">
-                <h1>Login</h1>
+                <h2 className="login-heading">Login</h2>
                 <form className="login-form">
-
+                    <div>
+                        Login to access your account
+                    </div>
                     <label className="mt-2">Email :</label>
                     <input onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" placeholder="Enter your email" />
                     {emailError && <p className="text-danger">{emailError}</p>}
@@ -114,9 +117,26 @@ const Loginpage = () => {
                     </div>
                     <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Login</button>
                 </form>
+
                 <div className="signup-link">
                     Don't have an account? <a href="/register">Sign Up</a>
                 </div>
+
+                <div className="separator">
+                        <div className="line"></div>
+                        <div className="or-text">or login with</div>
+                        <div className="line"></div>
+                    </div>
+
+                    <div className="social-buttons">
+                        <Button type='primary' icon={<FacebookFilled/>} className="facebook-btn">
+                            Login with Facebook
+                        </Button>
+                        <Button icon={<GoogleOutlined />} className="google-btn">
+                            Login with Google
+                        </Button>
+                    </div>
+                
             </div>
             <div className="login-slider-container">
                 <Slider {...settings}>
