@@ -74,6 +74,29 @@ body, html {
     border-radius: 8px;
 }
 
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    padding-right: 40px; /* Adjust the padding to make room for the icon */
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 74%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+}
+
+.btn.orange-btn {
+    background-color: orange;
+    color: white;
+}
+
 .login-form button {
     width: 100%;
     padding: 10px;
@@ -86,8 +109,49 @@ body, html {
 }
 
 .login-slider-container img {
-    width: 90%; /* Adjusted width to be responsive */
-    height: 600px; /* Fixed height */
-    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+    width: 90%;
+    height: 600px;
+    object-fit: cover;
     border-radius: 20px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 5px; /* Adjusted for better spacing */
+}
+
+.forgot-password {
+    color: #f5b428;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signup-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.signup-link a {
+    color: #f5b428;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }

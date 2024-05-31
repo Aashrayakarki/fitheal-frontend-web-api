@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { registerUserApi } from '../../apis/Api'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const Registerpage = () => {
     const [firstName, setFirstName] = useState('')
@@ -8,6 +9,9 @@ const Registerpage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+
+    const navigate = useNavigate();
+
 
     const handleFirstname = (e) => {
         setFirstName(e.target.value);
@@ -43,7 +47,8 @@ const Registerpage = () => {
 
         registerUserApi(data).then((res) => {
             if(res.data.success==true){
-                toast.success(res.data.message)
+                toast.success(res.data.message);
+                navigate('/login');
             } else {
                 toast.error(res.data.message)
             }
@@ -58,19 +63,19 @@ const Registerpage = () => {
             <div className='container mt-2'>
                 <h1>Create an account</h1>
                 <form className='w-50'>
-                    <label>Firstname: {firstName}</label>
+                    <label>Firstname: </label>
                     <input onChange={handleFirstname} type="text" className='form-control' placeholder='Enter your first name' />
 
-                    <label className='mt-2'>Lastname: {lastName}</label>
+                    <label className='mt-2'>Lastname:</label>
                     <input onChange={handleLastname} type="text" className='form-control' placeholder='Enter your last name' />
 
-                    <label className='mt-2'>Email: {email}</label>
+                    <label className='mt-2'>Email:</label>
                     <input onChange={handleEmail} type="text" className='form-control' placeholder='Enter your email address' />
 
-                    <label className='mt-2'>Password: {password}</label>
+                    <label className='mt-2'>Password:</label>
                     <input onChange={handlePassword} type="text" className='form-control' placeholder='Enter your password' />
 
-                    <label className='mt-2'>ConfirmPassword: {confirmPassword}</label>
+                    <label className='mt-2'>ConfirmPassword:</label>
                     <input onChange={handleConfirmPassword} type="text" className='form-control' placeholder='Type your password again' />
 
                     <button onClick={handleSubmit} className='btn btn-dark mt-3 w-100'>Create an Account</button>

@@ -5,12 +5,17 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
+import {EyeFilled, EyeInvisibleFilled, EyeInvisibleOutlined, EyeOutlined} from '@ant-design/icons';
+
 
 const Loginpage = () => {
 
     // Making a use sate
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [rememberMe, setRememberMe] = useState(false);
+    const [passwordVisible, setPasswordVisible] = useState(true);
+
 
     // Making an error state
     const [emailError, setEmailError] = useState('')
@@ -71,39 +76,62 @@ const Loginpage = () => {
 
 
     return (
-            <div className='login-container'>
-                 <div className="top-bar">
-                <img src="assets/images/fitheal.png" alt="Logo" className="top-logo"/>
+        <div className='login-container'>
+            <div className="top-bar">
+                <img src="assets/images/fitheal.png" alt="Logo" className="top-logo" />
             </div>
-                <div className="login-form-container">
-                    <h1>Login</h1>
-                    <form className="login-form">
+            <div className="login-form-container">
+                <h1>Login</h1>
+                <form className="login-form">
 
-                        <label className="mt-2">email :{email}</label>
-                        <input onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" placeholder="enter your email" />
-                        {emailError && <p className="text-danger">{emailError}</p>}
+                    <label className="mt-2">Email :</label>
+                    <input onChange={(e) => setEmail(e.target.value)} type="text" className="form-control" placeholder="Enter your email" />
+                    {emailError && <p className="text-danger">{emailError}</p>}
 
-                        <label className="mt-2">Password :{password}</label>
-                        <input onChange={(e) => setPassword(e.target.value)} type="text" className="form-control" placeholder="enter your password" />
-                        {passwordError && <p className="text-danger">{passwordError}</p>}
+                    <div className="password-container">
+                        <label className="mt-2">Password :</label>
+                        <input
+                            type={passwordVisible ? 'text' : 'password'}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="form-control"
+                            placeholder="Enter your password"
+                        />
+                        {passwordVisible ? (
+                            <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
+                        ) : (
+                            <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
+                        )}
+                    </div>
 
-                        <button onClick={handleSubmit} className="btn btn-dark mt-3 w-100">Login</button>
-                    </form>
-                </div>
-                <div className="login-slider-container">
-                    <Slider {...settings}>
-                        <div>
-                            <img src="assets/images/slider1.png" alt="Slide 1" />
+                    {passwordError && <p className="text-danger">{passwordError}</p>}
+
+                    <div className="form-options">
+                        <div className="remember-me">
+                            <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
+                            <label htmlFor="rememberMe"> Remember me</label>
                         </div>
-                        <div>
-                            <img src="assets/images/slider2.png" alt="Slide 2" />
-                        </div>
-                        <div>
-                            <img src="assets/images/vultures.png" alt="Slide 3" />
-                        </div>
-                    </Slider>
+                        <a href="#" className="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Login</button>
+                </form>
+                <div className="signup-link">
+                    Don't have an account? <a href="/register">Sign Up</a>
                 </div>
             </div>
+            <div className="login-slider-container">
+                <Slider {...settings}>
+                    <div>
+                        <img src="assets/images/slider1.png" alt="Slide 1" />
+                    </div>
+                    <div>
+                        <img src="assets/images/slider2.png" alt="Slide 2" />
+                    </div>
+                    <div>
+                        <img src="assets/images/vultures.png" alt="Slide 3" />
+                    </div>
+                </Slider>
+            </div>
+        </div>
 
     )
 }
