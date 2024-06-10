@@ -111,6 +111,15 @@ const AdminDashboard = () => {
                                 </div>
                                 <div className="modal-body">
                                     <form action=''>
+                                    <label className='mt-2'>Enter description</label>
+                                        <textarea onChange={(e) => setProductDescription(e.target.value)} className='form-control'></textarea>
+
+                                        <label className='mt-2'>Choose product Image</label>
+                                        <input onChange={handleImage} type='file' className='form-control'></input>
+                                        {/* Preview Image */}
+                                        {
+                                            previewImage && <img src={previewImage} alt='preview image' className='img-fluid rounded mt-2' />
+                                        }
                                         <label>Product Name</label>
                                         <input onChange={(e) => setProductName(e.target.value)} type="text" className='form-control' placeholder='Enter product name'></input>
 
@@ -126,16 +135,6 @@ const AdminDashboard = () => {
                                             <option value="Clothes">Clothes</option>
                                             <option value="Footwear">Footwear</option>
                                         </select>
-
-                                        <label className='mt-2'>Enter description</label>
-                                        <textarea onChange={(e) => setProductDescription(e.target.value)} className='form-control'></textarea>
-
-                                        <label className='mt-2'>Choose product Image</label>
-                                        <input onChange={handleImage} type='file' className='form-control'></input>
-                                        {/* Preview Image */}
-                                        {
-                                            previewImage && <img src={previewImage} alt='preview image' className='img-fluid rounded mt-2' />
-                                        }
                                     </form>
                                 </div>
                                 <div className="modal-footer">
@@ -185,10 +184,3 @@ const AdminDashboard = () => {
     )
 }
 export default AdminDashboard
-
-//Edit Product
-//Admin Dashboard (Table) product1
-//Make a route (Admin Edit product)
-//Fill all the related info only
-//Edit garna milnu paryo (Text, file)
-//Make a backend to update the product

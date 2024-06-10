@@ -11,7 +11,6 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <Router>
-      <Navbar/>
       <ToastContainer/>
       <Routes>
         <Route path= '/' element={<Homepage/>}/>
