@@ -172,10 +172,6 @@ const AdminDashboard = () => {
                                         <button onClick={() => handleDelete(singleProduct._id)} className="btn btn-danger ms-1">Delete</button>
                                     </td>
                                 </tr>
-
-
-
-
                             )
                             )
                         }
