@@ -136,7 +136,7 @@ const Registerpage = () => {
     return (
             <div className='register-container mt-2'>
                 <div className="top-bar">
-                    <img src="assets/images/fitheal.png" alt="Logo" className="top-logo" />
+                    <img src="assets/images/fitheal.png"/>
                 </div>
                 <div className="register-form-container">
                     <h2>Create an account</h2>
