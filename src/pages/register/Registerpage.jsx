@@ -135,9 +135,6 @@ const Registerpage = () => {
 
     return (
             <div className='register-container mt-2'>
-                <div className="top-bar">
-                    <img src="assets/images/fitheal.png"/>
-                </div>
                 <div className="register-form-container">
                     <h2>Create an account</h2>
                     <form className='w-50'>
@@ -226,7 +223,6 @@ const Registerpage = () => {
                             Login with Google
                         </Button>
                     </div>
-
                 </div>
                 <div className='register-slider-container'>
                     <Slider {...settings}>

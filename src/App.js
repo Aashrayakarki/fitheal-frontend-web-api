@@ -8,10 +8,12 @@ import { ToastContainer} from 'react-toastify';
 import Loginpage from './pages/login/Loginpage';
 import Navbar from './components/Navbar/Navbar';
 import AdminDashboard from './pages/admin/admin_dashboard/AdminDashboard';
+import Footer from './pages/footer/Footer';
 
 function App() {
   return (
     <Router>
+      <Navbar/>
       <ToastContainer/>
       <Routes>
         <Route path= '/' element={<Homepage/>}/>
@@ -20,8 +22,8 @@ function App() {
 
         {/* Admin routes */}
         <Route path='/admin/dashboard' element={<AdminDashboard/>} />
-
       </Routes>
+      <Footer/>
     </Router>
   );
 }

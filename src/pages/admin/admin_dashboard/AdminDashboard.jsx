@@ -1,10 +1,9 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar/Navbar'
+import Footer from '../../footer/Footer'
 
 const AdminDashboard = () => {
     return (
         <div>
-            <Navbar />
             <div>
                 <table class="table">
 
@@ -14,11 +13,53 @@ const AdminDashboard = () => {
                             <td>Walking</td>
                             <td>Jogging</td>
                         </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
+
+                        <tr>
+                            <td>Running</td>
+                            <td>Walking</td>
+                            <td>Jogging</td>
+                        </tr>
                         
                     </tbody>
                 </table>
+                <Footer/>
             </div>
-
         </div>
     )
 }

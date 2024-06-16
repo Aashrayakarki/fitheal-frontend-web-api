@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
 import {EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
 import { Button } from "antd";
+import Footer from '../footer/Footer';
 
 
 const Loginpage = () => {
@@ -78,9 +79,6 @@ const Loginpage = () => {
 
     return (
         <div className='login-container'>
-            <div className="top-bar">
-                <img src="assets/images/fitheal.png" alt="Logo" className="top-logo" />
-            </div>
             <div className="login-form-container">
                 <h2 className="login-heading">Login</h2>
                 <form className="login-form">
@@ -152,7 +150,6 @@ const Loginpage = () => {
                 </Slider>
             </div>
         </div>
-
     )
 }
 

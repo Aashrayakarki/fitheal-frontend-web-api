@@ -26,7 +26,6 @@ body, html {
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding-top: 80px;
 }
 
 .login-form-container {
@@ -40,7 +39,7 @@ body, html {
 .login-slider-container {
     flex: 1;
     max-width: 400px;
-    height: 600px;
+    height: 500px;
 }
 
 .login-form {

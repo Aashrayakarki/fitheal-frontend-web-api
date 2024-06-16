@@ -15,7 +15,7 @@ const Homepage = () => {
 
   return (
     <div>
-        <Navbar/>
+      
     </div>
   )
 }
