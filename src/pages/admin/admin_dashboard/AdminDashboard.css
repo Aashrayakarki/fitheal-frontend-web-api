@@ -2,4 +2,12 @@
     width: 150px; /* Set the desired width */
     height: 100px; /* Set the desired height */
     object-fit: cover; /* Adjusts the video to cover the given size without distortion */
+    
+}
+
+.preview-size {
+    width: 100%; /* Makes the video responsive */
+    height: auto;
+    border-radius: 15px; /* Rounds the corners of the video */
+    object-fit: cover; /* Ensures the video covers the given area */
 }
