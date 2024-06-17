@@ -22,16 +22,16 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="#">Home</a>
+                                <a className="nav-link" href='/home'>Home</a>
                             </li>
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="#">Exercises</a>
+                                <a className="nav-link" href="/admin/dashboard">Exercises</a>
                             </li>
                             <li className="nav-item me-5">
                                 <a className="nav-link" href="#">Meal Plans</a>
                             </li>
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="#">Contact Us</a>
+                                <a className="nav-link" href="/contact-us">Contact Us</a>
                             </li>
                         </ul>
                         <div className="d-flex ms-auto">

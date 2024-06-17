@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
 import {EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
 import { Button } from "antd";
-import Footer from '../footer/Footer';
 
 
 const Loginpage = () => {

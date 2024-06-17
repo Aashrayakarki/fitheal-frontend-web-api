@@ -209,20 +209,7 @@ const Registerpage = () => {
                         Already have an account? <a href="/Login">Login</a>
                     </div>
 
-                    <div className="register-separator">
-                        <div className="line"></div>
-                        <div className="or-text">or login with</div>
-                        <div className="line"></div>
-                    </div>
-
-                    <div className="register-social-buttons">
-                        <Button type='primary' icon={<FacebookFilled />} className="facebook-btn">
-                            Login with Facebook
-                        </Button>
-                        <Button icon={<GoogleOutlined />} className="google-btn">
-                            Login with Google
-                        </Button>
-                    </div>
+                    
                 </div>
                 <div className='register-slider-container'>
                     <Slider {...settings}>

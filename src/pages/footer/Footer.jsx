@@ -34,34 +34,22 @@ const Footer = () => {
                     <div className='sb__footer-links-div'>
                         <h4>Contact Us</h4>
                         <a href='/contact-us'>
-                            <p>Contact Us</p>
+                        <p>Phone: 456-7890</p>
+                        <p>Email: support@fitheal.com</p>
                         </a>
+                        
                     </div>
-                    {/* <div className='sb__footer-links-div'>
-                        <h4>Follow Us</h4>
-                        <a href='/facebook'>
-                            <p>Facebook</p>
-                        </a>
-
-                        <a href='/twitter'>
-                            <p>Twitter</p>
-                        </a>
-
-                        <a href='/instagram'>
-                            <p>Instagram</p>
-                        </a>
-                    </div> */}
                     <div className='sb__footer-links-div'>
                         <h4>Follow Us</h4>
                         <div className='socialmedia'>
                             <a href='https://www.facebook.com/'>
-                            <p className='mx-1'><img src="assets/icons/facebook.ico" height={"30px"} width={"40px"}/></p>
+                                <p className='mx-1'><img src="assets/icons/facebook.ico" height={"30px"} width={"40px"} alt="Facebook"/></p>
                             </a>
                             <a href='https://www.instagram.com/'>
-                            <p><img src="assets/icons/instagram.ico" height={"30px"} width={"40px"}/></p>
+                                <p><img src="assets/icons/instagram.ico" height={"30px"} width={"40px"} alt="Instagram"/></p>
                             </a>
                             <a href='https://x.com/home'>
-                            <p><img src="assets/icons/twitter.ico" height={"30px"} width={"50px"} /></p>
+                                <p><img src="assets/icons/twitter.ico" height={"30px"} width={"50px"} alt="Twitter"/></p>
                             </a>
                         </div>
                     </div>

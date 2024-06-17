@@ -30,8 +30,8 @@ const AdminDashboard = () => {
         formData.append('exerciseVideo', exerciseVideo)
 
         createExerciseApi(formData).then((res) => {
-            if (res.data.success === false) {
-                toast.error(res.data.message)
+            if (res.status == 201) {
+                toast.success(res.data.message)
             }
         }).catch((error) => {
             //for error status code
@@ -50,14 +50,13 @@ const AdminDashboard = () => {
 
     }
 
-
     return (
         <>
             <div className='container mt-3'>
                 <div className='d-flex justify-content-between'>
 
                     <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add product
+                        Add exercise
                     </button>
 
                     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,7 +96,7 @@ const AdminDashboard = () => {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button onClick={handleSubmit} type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -118,10 +117,10 @@ const AdminDashboard = () => {
                     <tbody>
                         <tr>
                             <td><video src="/assets/videos/abc.mp4" className="video-size" controls></video></td>
-                            <td>Walking</td>
+                            <td>Jump roping</td>
                             <td>200</td>
-                            <td>30 min</td>
-                            <td>Easy</td>
+                            <td>30 minutes</td>
+                            <td>Beginner</td>
                             <td>
                                 <button className='btn btn-primary'>Edit</button>
                                 <button className="btn btn-danger ms-2">Delete</button>
