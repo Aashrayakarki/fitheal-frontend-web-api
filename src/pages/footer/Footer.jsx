@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='sb__footer section__padding'>
                 <div className='sb__footer-links'>
                     <div className='sb__footer-links-div'>
-                        <h4>Quick Links</h4>
+                        <h4>Pages</h4>
                         <a href='/login'>
                             <p>Login</p>
                         </a>
@@ -37,7 +37,7 @@ const Footer = () => {
                             <p>Contact Us</p>
                         </a>
                     </div>
-                    <div className='sb__footer-links-div'>
+                    {/* <div className='sb__footer-links-div'>
                         <h4>Follow Us</h4>
                         <a href='/facebook'>
                             <p>Facebook</p>
@@ -50,14 +50,19 @@ const Footer = () => {
                         <a href='/instagram'>
                             <p>Instagram</p>
                         </a>
-                    </div>
+                    </div> */}
                     <div className='sb__footer-links-div'>
-                        <h4>Newsletter</h4>
+                        <h4>Follow Us</h4>
                         <div className='socialmedia'>
-                            <p><img src="fitheal.png" alt="" /></p>
-                            <p><img src="fitheal.png" /></p>
-                            <p><img src="fitheal.png" /></p>
-                            <p><img src="fitheal.png" /></p>
+                            <a href='https://www.facebook.com/'>
+                            <p className='mx-1'><img src="assets/icons/facebook.ico" height={"30px"} width={"40px"}/></p>
+                            </a>
+                            <a href='https://www.instagram.com/'>
+                            <p><img src="assets/icons/instagram.ico" height={"30px"} width={"40px"}/></p>
+                            </a>
+                            <a href='https://x.com/home'>
+                            <p><img src="assets/icons/twitter.ico" height={"30px"} width={"50px"} /></p>
+                            </a>
                         </div>
                     </div>
                 </div>
