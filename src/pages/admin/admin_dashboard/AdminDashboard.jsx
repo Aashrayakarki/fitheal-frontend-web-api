@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AdminDashboard.css'; // Make sure to create and import this CSS file
-import { createExerciseApi } from '../../../apis/Api';
+import { createExerciseApi, getAllExercises } from '../../../apis/Api';
 import { toast } from 'react-toastify';
 
 const AdminDashboard = () => {
+    const [exercises, setExercises] = useState([])
+    useEffect(() => {
+        //get all exercises
+        getAllExercises().then((res) => {
+            //response: res.data.products
+            setExercises(res.data.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }, [])
+    console.log(exercises)
 
-    const [exerciseVideo, setExerciseVideo] = useState(null)
-    const [previewVideo, setPreviewVideo] = useState(null)
+    const [exerciseVideo, setExerciseVideo] = useState('')
+    const [previewVideo, setPreviewVideo] = useState('')
 
     const [exerciseName, setExerciseName] = useState('')
     const [exerciseCalories, setExerciseCalories] = useState('')
@@ -17,7 +28,7 @@ const AdminDashboard = () => {
         const file = e.target.files[0]
         setExerciseVideo(file)
         setPreviewVideo(URL.createObjectURL(file))
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,8 +40,11 @@ const AdminDashboard = () => {
         formData.append('exerciseLevel', exerciseLevel)
         formData.append('exerciseVideo', exerciseVideo)
 
+        console.log(formData.get('exerciseVideo'))
+
+
         createExerciseApi(formData).then((res) => {
-            if (res.status == 201) {
+            if (res.status === 201) {
                 toast.success(res.data.message)
             }
         }).catch((error) => {
@@ -86,9 +100,9 @@ const AdminDashboard = () => {
                                         </select>
 
                                         <label className='mt-2'>Choose exercise video</label>
-                                        <input onChange={handleVideo} type='file' className='form-control'></input>
+                                        <input onChange={handleVideo} type='file' className='form-control'/>
                                         {
-                                            previewVideo && <video src={previewVideo} className='preview-size mt-2' controls></video>
+                                            previewVideo && <img src={previewVideo} ></img>
                                         }
 
 
@@ -116,7 +130,7 @@ const AdminDashboard = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td><video src="/assets/videos/abc.mp4" className="video-size" controls></video></td>
+                            <td><img src="/assets/images/fitheal.png" alt=''></img></td>
                             <td>Jump roping</td>
                             <td>200</td>
                             <td>30 minutes</td>
@@ -128,6 +142,22 @@ const AdminDashboard = () => {
                             </td>
                         </tr>
                     </tbody>
+                    {
+                            exercises.map((singleExercise) => (
+                                <tr>
+                                    <td><img width={'40px'} height={'40px'} src={`http://localhost:5000/products/${singleExercise.exerciseVideo}`} alt='' /></td>
+                                    <td>{singleExercise.exerciseName}</td>
+                                    <td>{singleExercise.exerciseTime}</td>
+                                    <td>{singleExercise.exerciseCalories}</td>
+                                    <td>{singleExercise.exerciseLevel}</td>
+                                    <td>
+                                        {/* <Link to={`/admin/update/${singleExercise._id}`} className="btn btn-primary">Edit</Link> */}
+                                        {/* <button onClick={() => handleDelete(singleProduct._id)} className="btn btn-danger ms-1">Delete</button> */}
+                                    </td>
+                                </tr>
+                            )
+                            )
+                        }
                 </table>
 
             </div>
