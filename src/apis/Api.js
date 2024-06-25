@@ -25,5 +25,7 @@ export const createExerciseApi = (data) => Api.post('/api/exercise/create', data
 //Get All Exercises API
 export const getAllExercises = () => Api.get('/api/exercise/get_all_exercises')
 
+//Get Exercise By ID API
+
 
 //http://localhost:5000/test

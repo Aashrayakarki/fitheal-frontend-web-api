@@ -24,6 +24,7 @@ function App() {
 
         {/* Admin routes */}
         <Route path='/admin/dashboard' element={<AdminDashboard/>} />
+        <Route path='/admin/update/:id' element={<UpdateExercise/>} />
       </Routes>
       <Footer/>
     </Router>
