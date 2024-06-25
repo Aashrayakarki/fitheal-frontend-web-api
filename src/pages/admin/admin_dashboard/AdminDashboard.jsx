@@ -130,19 +130,6 @@ const AdminDashboard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="/assets/images/fitheal.png" alt=''></img></td>
-                            <td>Jump roping</td>
-                            <td>200</td>
-                            <td>30 minutes</td>
-                            <td>Beginner</td>
-                            <td>
-                                <button className='btn btn-primary'>Edit</button>
-                                <button className="btn btn-danger ms-2">Delete</button>
-
-                            </td>
-                        </tr>
-                    </tbody>
                     {
                             exercises.map((singleExercise) => (
                                 <tr>
@@ -159,6 +146,8 @@ const AdminDashboard = () => {
                             )
                             )
                         }
+                    </tbody>
+                    
                 </table>
 
             </div>

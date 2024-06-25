@@ -10,6 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import AdminDashboard from './pages/admin/admin_dashboard/AdminDashboard';
 import Footer from './pages/footer/Footer';
 import ContactUs from './pages/contactus/ContactUs';
+import UpdateExercise from './pages/admin/update_exercise/UpdateExercise';
 
 function App() {
   return (
