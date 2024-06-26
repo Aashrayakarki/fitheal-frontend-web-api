@@ -140,7 +140,7 @@ const AdminDashboard = () => {
                                     <td>{singleExercise.exerciseLevel}</td>
                                     <td>
                                         <Link to={`/admin/update/${singleExercise._id}`} className="btn btn-primary">Edit</Link>
-                                        {/* <button onClick={() => handleDelete(singleProduct._id)} className="btn btn-danger ms-1">Delete</button> */}
+                                        <button onClick={() => handleDelete(singleProduct._id)} className="btn btn-danger ms-1">Delete</button>
                                     </td>
                                 </tr>
                             )
