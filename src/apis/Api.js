@@ -28,5 +28,11 @@ export const getAllExercises = () => Api.get('/api/exercise/get_all_exercises')
 //Get Exercise
 export const getSingleExercise = (id) => Api.get(`/api/exercise/get_exercise/${id}`)
 
+//Update Exercise
+export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${id}`, data)
+
+//Delete Exercise
+export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`)
+
 
 //http://localhost:5000/test
