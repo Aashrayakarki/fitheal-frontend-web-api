@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Homepage.css'
+import { getAllExercises } from '../../apis/Api'
+import ExerciseCard from '../../components/exercise_card/ExerciseCard'
 
 const Homepage = () => {
 
@@ -25,10 +27,10 @@ const Homepage = () => {
                   </div>
                   <div class="carousel-inner">
                       <div class="carousel-item active">
-                          <img src="https://images.pexels.com/photos/321552/pexels-photo-321552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100" alt="" />
+                          <img src="/assets/images/banner2.png" class="d-block w-100" alt="" />
                           <div class="carousel-caption d-none d-md-block">
-                              <h5>First slide label</h5>
-                              <p>Some representative placeholder content for the first slide.</p>
+                              <h5></h5>
+                              <p></p>
                           </div>
                       </div>
                       <div class="carousel-item">
@@ -55,12 +57,12 @@ const Homepage = () => {
                       <span class="visually-hidden">Next</span>
                   </button>
               </div>
-              <h2 className="mt-5">Available Products</h2>
+              <h2 className="mt-5">Available Exercises</h2>
               <div class="row row-cols-1 row-cols-md-4 g-4">
                   {
                       exercises.map((singleExercise) => (
                           <div class="col">
-                              <ProductCard exerciseInformation={singleExercise} color={"green"}/>
+                              <ExerciseCard exerciseInformation={singleExercise} color={"green"}/>
                           </div>
                       )
                       )}
