@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AdminDashboard.css'; // Make sure to create and import this CSS file
-import { createExerciseApi, getAllExercises } from '../../../apis/Api';
+import { createExerciseApi, deleteExerciseApi, getAllExercises } from '../../../apis/Api';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
@@ -64,6 +64,26 @@ const AdminDashboard = () => {
         })
 
     }
+
+    //Handle delete product
+    const handleDelete = (id) => {
+        const confirmDialog = window.confirm('Are you sure you want to delete this exercise?')
+        if (confirmDialog) {
+            //calling api
+            deleteExerciseApi(id).then((res) => {
+                if (res.status === 201) {
+                    toast.success(res.data.message)
+                    window.location.reload()
+
+                }
+            }).catch((error) => {
+                if (error.res.status === 500){
+                    toast.error(error.res.data.message)
+                }
+            })
+        }
+    }
+
 
     return (
         <>
@@ -140,7 +160,7 @@ const AdminDashboard = () => {
                                     <td>{singleExercise.exerciseLevel}</td>
                                     <td>
                                         <Link to={`/admin/update/${singleExercise._id}`} className="btn btn-primary">Edit</Link>
-                                        <button onClick={() => handleDelete(singleProduct._id)} className="btn btn-danger ms-1">Delete</button>
+                                        <button onClick={() => handleDelete(singleExercise._id)} className="btn btn-danger ms-1">Delete</button>
                                     </td>
                                 </tr>
                             )
