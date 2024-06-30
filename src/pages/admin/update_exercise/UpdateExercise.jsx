@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { getSingleExercise } from '../../../apis/Api'
+import { getSingleExercise, updateExerciseApi } from '../../../apis/Api'
+import './UpdateExercise.css'
 
 const UpdateExercise = () => {
     // get id from url
@@ -56,7 +57,7 @@ const UpdateExercise = () => {
         }
 
         //Api call
-        UpdateExercise(id, formData).then((res) => {
+        updateExerciseApi(id, formData).then((res) => {
             if (res.status === 201) {
                 toast.success(res.data.message)
             }
@@ -75,7 +76,7 @@ const UpdateExercise = () => {
         <>
             <div className='container mt-3'>
 
-                <h2>Update product for <span className='text-danger'>'{exerciseName}'</span></h2>
+                <h2>Update product for {exerciseName}</h2>
                 <div className='d-flex gap-3'>
                     <form action="">
                         <label htmlFor="">Exercise Name</label>
@@ -98,7 +99,7 @@ const UpdateExercise = () => {
                         <label className='mt-2'>Choose Video</label>
                         <input onChange={handleVideo} type="file" className='form-control' />
 
-                        <button onClick={handleUpdate} className='btn btn-danger w-100 mt-2'>Update Exercise</button>
+                        <button onClick={handleUpdate} className='btn orange-btn w-100 mt-2'>Update Exercise</button>
 
                     </form>
                     <div className='image section ms-3'>
@@ -109,7 +110,7 @@ const UpdateExercise = () => {
                             previewNewVideo && (
                                 <>
                                     <h6 className='mt-2'>Previewing New Video</h6>
-                                    <img height={'170px'} width={'300px'} className='image-fluid rounded-4 object-fit-cover' src={previewNewVideo} alt="image" />
+                                    <img height={'170px'} width={'300px'} className='image-fluid rounded-4 object-fit-cover' src={previewNewVideo} alt =""/>
                                 </>
                             )
                         }
