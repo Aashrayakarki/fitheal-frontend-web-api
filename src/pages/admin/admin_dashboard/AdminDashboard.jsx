@@ -90,7 +90,7 @@ const AdminDashboard = () => {
             <div className='container mt-3'>
                 <div className='d-flex justify-content-between'>
 
-                    <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" className="btn orange-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Add exercise
                     </button>
 
@@ -159,8 +159,8 @@ const AdminDashboard = () => {
                                     <td>{singleExercise.exerciseCalories}</td>
                                     <td>{singleExercise.exerciseLevel}</td>
                                     <td>
-                                        <Link to={`/admin/update/${singleExercise._id}`} className="btn btn-primary">Edit</Link>
-                                        <button onClick={() => handleDelete(singleExercise._id)} className="btn btn-danger ms-1">Delete</button>
+                                        <Link to={`/admin/update/${singleExercise._id}`} className="btn orange-btn">Edit</Link>
+                                        <button onClick={() => handleDelete(singleExercise._id)} className="btn btn-dark ms-1">Delete</button>
                                     </td>
                                 </tr>
                             )
