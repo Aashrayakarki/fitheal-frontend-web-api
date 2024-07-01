@@ -1,22 +1,25 @@
-import React from 'react'
+import React from 'react';
+import './ExerciseCard.css';
 
-const ExerciseCard = ({exerciseInformation, color}) => {
+const ExerciseCard = ({ exerciseInformation, color }) => {
     return (
-        <>
-            <div class="card" style= {{width: '18rem'}}>
-                <span style={{backgroundColor: color}} className='badge position-absolute top-0'>{exerciseInformation.exerciseLevel}</span>
-                <img src={`http://localhost:5000/products/${exerciseInformation.exerciseVideo}`} className="card-img-top" alt="..." />
-                <div class="card-body">
-                    <div className='d-flex justify-content-between'>
-                    <h5 class="card-title">{exerciseInformation.exerciseName}</h5>
-                    <h5 class="card-title text-danger">NPR. {exerciseInformation.exerciseTime}</h5>
-                    </div>
-                    <p class="card-text">{exerciseInformation.exerciseCalories.slice(0, 40)}</p>
-                    <a href="#" class="btn btn-outline-dark w-100">Go somewhere</a>
+        <div className="card custom-card" style={{ width: '18rem' }}>
+            <span style={{ backgroundColor: color }} className='badge position-absolute top-0'>{exerciseInformation.exerciseLevel}</span>
+            <img 
+                src={`http://localhost:5000/products/${exerciseInformation.exerciseVideo}`} 
+                className="card-img-top custom-card-img" 
+                alt={exerciseInformation.exerciseName}
+            />
+            <div className="card-body">
+                <div className='d-flex justify-content-between'>
+                    <h5 className="card-title">{exerciseInformation.exerciseName}</h5>
+                    <h5 className="card-title text-danger">{exerciseInformation.exerciseCalories} cal</h5>
                 </div>
+                <p className="card-text">{exerciseInformation.exerciseTime.slice(0, 40)} minutes</p>
+                <a href="#" className="btn btn-outline-dark w-100">Go somewhere</a>
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};
 
 export default ExerciseCard;

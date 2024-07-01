@@ -62,7 +62,7 @@ const Homepage = () => {
                   {
                       exercises.map((singleExercise) => (
                           <div class="col">
-                              <ExerciseCard exerciseInformation={singleExercise} color={"green"}/>
+                              <ExerciseCard exerciseInformation={singleExercise} color={"orange"}/>
                           </div>
                       )
                       )}
