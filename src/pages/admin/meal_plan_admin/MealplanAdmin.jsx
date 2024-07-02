@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { createMealApi, deleteMealApi, getAllMeals } from '../../../apis/Api';
 
 const MealplanAdmin = () => {
     const [meals, setMeals] = useState([])
@@ -13,7 +14,7 @@ const MealplanAdmin = () => {
             console.log(error)
         })
     }, [])
-    console.log(exercises)
+    console.log(meals)
 
     const [mealImage, setMealImage] = useState('')
     const [previewImage, setPreviewImage] = useState('')
@@ -138,14 +139,14 @@ const MealplanAdmin = () => {
                     </thead>
                     <tbody>
                     {
-                            exercises.map((singleMeal) => (
+                            meals.map((singleMeal) => (
                                 <tr>
                                     <td><img width={'40px'} height={'40px'} src={`http://localhost:5000/products/${singleMeal.mealImage}`} alt='' /></td>
                                     <td>{singleMeal.mealName}</td>
                                     <td>{singleMeal.mealTime}</td>
                                     <td>{singleMeal.mealCalories}</td>
                                     <td>
-                                        <Link to={`/admin/update_meal/${singleMeal._id}`} className="btn orange-btn">Edit</Link>
+                                        <Link to={`/admin/update/${singleMeal._id}`} className="btn orange-btn">Edit</Link>
                                         <button onClick={() => handleDelete(singleMeal._id)} className="btn btn-dark ms-1">Delete</button>
                                     </td>
                                 </tr>
