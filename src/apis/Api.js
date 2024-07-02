@@ -25,7 +25,7 @@ export const registerUserApi = (data) => Api.post('/api/user/register', data)
 //Login API
 export const loginUserApi = (data) => Api.post('/api/user/login', data)
 
-//Exercise API
+//Create Exercise API
 export const createExerciseApi = (data) => Api.post('/api/exercise/create', data)
 
 //Get All Exercises API
@@ -40,5 +40,19 @@ export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update_exe
 //Delete Exercise
 export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config)
 
+//Create Meal Plan API
+export const createMealApi = (data) => Api.post('/api/meal/create', data)
+
+//Get All Meal Plans API
+export const getAllMeals = () => Api.get('/api/meal/get_all_meals', config)
+
+//Get Meal Plan
+export const getSingleMeal = (id) => Api.get(`/api/meal/get_meal/${id}`, config)
+
+//Update Meal Plan
+export const updateMealApi = (id, data) => Api.put(`/api/meal/update_meal/${id}`, data, config)
+
+//Delete Meal Plan
+export const deleteMealApi = (id) => Api.delete(`/api/meal/delete/${id}`, config)
 
 //http://localhost:5000/test

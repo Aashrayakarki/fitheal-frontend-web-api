@@ -11,6 +11,7 @@ import Footer from './pages/footer/Footer';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateExercise from './pages/admin/update_exercise/UpdateExercise';
 import ExerciseAdmin from './pages/admin/exercise_admin/ExerciseAdmin';
+import MealplanAdmin from './pages/admin/meal_plan_admin/MealplanAdmin';
 
 function App() {
   return (
@@ -23,9 +24,14 @@ function App() {
         <Route path= '/login' element={<Loginpage/>}/>
         <Route path= '/contact-us' element={<ContactUs/>}/>
 
-        {/* Admin routes */}
+        {/* Exercise Admin routes */}
         <Route path='/admin/exercise' element={<ExerciseAdmin/>} />
-        <Route path='/admin/update/:id' element={<UpdateExercise/>} />
+        <Route path='/admin/update_exercise/:id' element={<UpdateExercise/>} />
+
+        {/* Meal Plan Admin routes */}
+        <Route path='/admin/meal' element={<MealplanAdmin/>} />
+        <Route path='/admin/update_meal/:id' element={<UpdateMeal/>} />
+
       </Routes>
       <Footer/>
     </Router>

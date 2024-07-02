@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { createExerciseApi, deleteExerciseApi, getAllExercises } from '../../../apis/Api';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import './ExerciseAdmin.css'
 
 const MealplanAdmin = () => {
     const [meals, setMeals] = useState([])
