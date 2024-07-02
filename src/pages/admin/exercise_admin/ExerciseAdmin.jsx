@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './AdminDashboard.css'; // Make sure to create and import this CSS file
 import { createExerciseApi, deleteExerciseApi, getAllExercises } from '../../../apis/Api';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import './ExerciseAdmin.css'
 
-const AdminDashboard = () => {
+const ExerciseAdmin = () => {
     const [exercises, setExercises] = useState([])
     useEffect(() => {
         //get all exercises
@@ -175,4 +175,4 @@ const AdminDashboard = () => {
     );
 };
 
-export default AdminDashboard;
+export default ExerciseAdmin;

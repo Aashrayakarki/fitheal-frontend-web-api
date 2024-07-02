@@ -7,10 +7,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 import Loginpage from './pages/login/Loginpage';
 import Navbar from './components/Navbar/Navbar';
-import AdminDashboard from './pages/admin/admin_dashboard/AdminDashboard';
 import Footer from './pages/footer/Footer';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateExercise from './pages/admin/update_exercise/UpdateExercise';
+import ExerciseAdmin from './pages/admin/exercise_admin/ExerciseAdmin';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path= '/contact-us' element={<ContactUs/>}/>
 
         {/* Admin routes */}
-        <Route path='/admin/dashboard' element={<AdminDashboard/>} />
+        <Route path='/admin/exercise' element={<ExerciseAdmin/>} />
         <Route path='/admin/update/:id' element={<UpdateExercise/>} />
       </Routes>
       <Footer/>

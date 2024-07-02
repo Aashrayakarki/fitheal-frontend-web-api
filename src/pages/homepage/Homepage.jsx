@@ -57,7 +57,7 @@ const Homepage = () => {
                       <span class="visually-hidden">Next</span>
                   </button>
               </div>
-              <h2 className="mt-5">Available Exercises</h2>
+              <h2 className="mt-5">Featured Exercises</h2>
               <div class="row row-cols-1 row-cols-md-4 g-4">
                   {
                       exercises.map((singleExercise) => (

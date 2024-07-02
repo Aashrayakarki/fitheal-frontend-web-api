@@ -9,6 +9,12 @@ const Api = axios.create({
     },
 })
 
+const config = {
+    headers: {
+        'authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+}
+
 
 //Test API
 export const testAPI = () => Api.get('/')
@@ -23,16 +29,16 @@ export const loginUserApi = (data) => Api.post('/api/user/login', data)
 export const createExerciseApi = (data) => Api.post('/api/exercise/create', data)
 
 //Get All Exercises API
-export const getAllExercises = () => Api.get('/api/exercise/get_all_exercises')
+export const getAllExercises = () => Api.get('/api/exercise/get_all_exercises', config)
 
 //Get Exercise
-export const getSingleExercise = (id) => Api.get(`/api/exercise/get_exercise/${id}`)
+export const getSingleExercise = (id) => Api.get(`/api/exercise/get_exercise/${id}`, config)
 
 //Update Exercise
-export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${id}`, data)
+export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${id}`, data, config)
 
 //Delete Exercise
-export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`)
+export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config)
 
 
 //http://localhost:5000/test
