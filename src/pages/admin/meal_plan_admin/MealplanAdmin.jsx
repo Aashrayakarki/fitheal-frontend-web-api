@@ -39,7 +39,9 @@ const MealplanAdmin = () => {
         formData.append('mealImage', mealImage)
 
         console.log(formData.get('mealImage'))
-
+        console.log(formData.get('mealName'))
+        console.log(formData.get('mealCalories'))
+        console.log(formData.get('mealTime'))
 
         createMealApi(formData).then((res) => {
             if (res.status === 201) {

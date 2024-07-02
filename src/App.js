@@ -27,11 +27,11 @@ function App() {
 
         {/* Exercise Admin routes */}
         <Route path='/admin/exercise' element={<ExerciseAdmin/>} />
-        <Route path='/admin/update/:id' element={<UpdateExercise/>} />
+        <Route path='/admin/_exercise/:id' element={<UpdateExercise/>} />
 
         {/* Meal Plan Admin routes */}
         <Route path='/admin/meal' element={<MealplanAdmin/>} />
-        <Route path='/admin/update/:id' element={<UpdateMeal/>} />
+        <Route path='/admin/update_meal/:id' element={<UpdateMeal/>} />
 
       </Routes>
       <Footer/>
