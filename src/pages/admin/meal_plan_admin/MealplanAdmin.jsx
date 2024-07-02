@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import './ExerciseAdmin.css'
 
-const ExerciseAdmin = () => {
+const MealplanAdmin = () => {
     const [exercises, setExercises] = useState([])
     useEffect(() => {
         //get all exercises
@@ -175,4 +175,4 @@ const ExerciseAdmin = () => {
     );
 };
 
-export default ExerciseAdmin;
+export default MealplanAdmin;
