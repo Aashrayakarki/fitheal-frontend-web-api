@@ -35,7 +35,7 @@ export const getAllExercises = () => Api.get('/api/exercise/get_all_exercises', 
 export const getSingleExercise = (id) => Api.get(`/api/exercise/get_exercise/${id}`, config)
 
 //Update Exercise
-export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${id}`, data, config)
+export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update_exercise/${id}`, data, config)
 
 //Delete Exercise
 export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config)

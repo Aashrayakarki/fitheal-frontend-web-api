@@ -159,7 +159,7 @@ const ExerciseAdmin = () => {
                                     <td>{singleExercise.exerciseCalories}</td>
                                     <td>{singleExercise.exerciseLevel}</td>
                                     <td>
-                                        <Link to={`/admin/update/${singleExercise._id}`} className="btn orange-btn">Edit</Link>
+                                        <Link to={`/admin/update_exercise/${singleExercise._id}`} className="btn orange-btn">Edit</Link>
                                         <button onClick={() => handleDelete(singleExercise._id)} className="btn btn-dark ms-1">Delete</button>
                                     </td>
                                 </tr>
