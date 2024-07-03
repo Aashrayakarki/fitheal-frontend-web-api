@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Homepage.css'
-import { getAllExercises } from '../../apis/Api'
+import { getAllExercises, getAllMeals } from '../../apis/Api'
 import ExerciseCard from '../../components/exercise_card/ExerciseCard'
+import MealCard from '../../components/meal_card/MealCard'
 
 const Homepage = () => {
 
@@ -11,6 +12,17 @@ const Homepage = () => {
       getAllExercises().then((res) => {
           //response: res.data.exercises
           setExercises(res.data.data)
+      }).catch((error) => {
+          console.log(error)
+      })
+  }, [])
+
+  const [meals, setMeals] = useState([])
+
+  useEffect(() => {
+      getAllMeals().then((res) => {
+          //response: res.data.exercises
+          setMeals(res.data.data)
       }).catch((error) => {
           console.log(error)
       })
