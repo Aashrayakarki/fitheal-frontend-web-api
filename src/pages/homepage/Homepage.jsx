@@ -46,17 +46,17 @@ const Homepage = () => {
                           </div>
                       </div>
                       <div class="carousel-item">
-                          <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100" alt="..." />
+                          <img src="/assets/images/banner1.jpg" class="d-block w-100" alt="..." />
                           <div class="carousel-caption d-none d-md-block">
-                              <h5>Second slide label</h5>
-                              <p>Some representative placeholder content for the second slide.</p>
+                              <h5></h5>
+                              <p></p>
                           </div>
                       </div>
                       <div class="carousel-item">
-                          <img src="https://images.pexels.com/photos/5463180/pexels-photo-5463180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100" alt="..." />
+                          <img src="/assets/images/banner3.jpg" class="d-block w-100" alt="..." />
                           <div class="carousel-caption d-none d-md-block">
-                              <h5>Third slide label</h5>
-                              <p>Some representative placeholder content for the third slide.</p>
+                              <h5></h5>
+                              <p></p>
                           </div>
                       </div>
                   </div>

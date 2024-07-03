@@ -21,6 +21,8 @@ const MealplanAdmin = () => {
 
     const [mealName, setMealName] = useState('')
     const [mealCalories, setMealCalories] = useState('')
+    const [mealProteins, setMealProteins] = useState('')
+    const [mealCarbs, setMealCarbs] = useState('')
     const [mealTime, setMealTime] = useState('')
 
     const handleImage = (e) => {
@@ -35,12 +37,16 @@ const MealplanAdmin = () => {
         const formData = new FormData()
         formData.append('mealName', mealName)
         formData.append('mealCalories', mealCalories)
+        formData.append('mealProteins', mealProteins)
+        formData.append('mealCarbs', mealCarbs)
         formData.append('mealTime', mealTime)
         formData.append('mealImage', mealImage)
 
         console.log(formData.get('mealImage'))
         console.log(formData.get('mealName'))
         console.log(formData.get('mealCalories'))
+        console.log(formData.get('mealProteins'))
+        console.log(formData.get('mealCarbs'))
         console.log(formData.get('mealTime'))
 
         createMealApi(formData).then((res) => {
@@ -111,6 +117,12 @@ const MealplanAdmin = () => {
                                         <label className='mt-2'>Meal Calories</label>
                                         <input onChange={(e) => setMealCalories(e.target.value)} type="number" className='form-control' placeholder='Enter meal calories'></input>
 
+                                        <label className='mt-2'>Meal Proteins</label>
+                                        <input onChange={(e) => setMealProteins(e.target.value)} type="number" className='form-control' placeholder='Enter meal proteins'></input>
+
+                                        <label className='mt-2'>Meal Carbs</label>
+                                        <input onChange={(e) => setMealCarbs(e.target.value)} type="number" className='form-control' placeholder='Enter meal carbs'></input>
+
                                         <label className='mt-2'>Choose meal image</label>
                                         <input onChange={handleImage} type='file' className='form-control'/>
                                         {
@@ -133,7 +145,9 @@ const MealplanAdmin = () => {
                         <tr>
                             <th>Image</th>
                             <th>Meal Name</th>
-                            <th>Calories Burn</th>
+                            <th>Calories</th>
+                            <th>Proteins</th>
+                            <th>Carbs</th>
                             <th>Time</th>
                             <th>Actions</th>
 
@@ -145,8 +159,10 @@ const MealplanAdmin = () => {
                                 <tr>
                                     <td><img width={'40px'} height={'40px'} src={`http://localhost:5000/products/${singleMeal.mealImage}`} alt='' /></td>
                                     <td>{singleMeal.mealName}</td>
-                                    <td>{singleMeal.mealTime}</td>
                                     <td>{singleMeal.mealCalories}</td>
+                                    <td>{singleMeal.mealProteins}</td>
+                                    <td>{singleMeal.mealCarbs}</td>
+                                    <td>{singleMeal.mealTime}</td>
                                     <td>
                                         <Link to={`/admin/update/${singleMeal._id}`} className="btn orange-btn">Edit</Link>
                                         <button onClick={() => handleDelete(singleMeal._id)} className="btn btn-dark ms-1">Delete</button>

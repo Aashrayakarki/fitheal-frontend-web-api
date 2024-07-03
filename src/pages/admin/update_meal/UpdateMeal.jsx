@@ -13,6 +13,8 @@ const UpdateMeal = () => {
             setMealName(res.data.data.mealName)
             setMealTime(res.data.data.mealTime)
             setMealCalories(res.data.data.mealCalories)
+            setMealProteins(res.data.data.mealProteins)
+            setMealCarbs(res.data.data.mealCarbs)
             setOldImage(res.data.data.mealImage)
 
         }).catch((error) => {
@@ -24,6 +26,8 @@ const UpdateMeal = () => {
     const [mealName, setMealName] = useState('')
     const [mealTime, setMealTime] = useState('')
     const [mealCalories, setMealCalories] = useState('')
+    const [mealProteins, setMealProteins] = useState('')
+    const [mealCarbs, setMealCarbs] = useState('')
 
     const [mealNewImage, setMealNewImage] = useState(null)
     const [previewNewImage, setPreviewNewImage] = useState(null)
@@ -42,6 +46,8 @@ const UpdateMeal = () => {
         formData.append('mealName', mealName)
         formData.append('mealTime', mealTime)
         formData.append('mealCalories', mealCalories)
+        formData.append('mealProteins', mealProteins)
+        formData.append('mealCarbs', mealCarbs)
 
         if (mealNewImage) {
             formData.append('mealImage', mealNewImage)
@@ -78,6 +84,12 @@ const UpdateMeal = () => {
 
                         <label className='mt-2' htmlFor="">Meal Calories</label>
                         <input value={mealCalories} onChange={(e) => setMealCalories(e.target.value)} className='form-control' type="number" placeholder='Enter your meal calories' />
+
+                        <label className='mt-2' htmlFor="">Meal Proteins</label>
+                        <input value={mealProteins} onChange={(e) => setMealProteins(e.target.value)} className='form-control' type="number" placeholder='Enter your meal proteins' />
+
+                        <label className='mt-2' htmlFor="">Meal Carbs</label>
+                        <input value={mealCarbs} onChange={(e) => setMealCarbs(e.target.value)} className='form-control' type="number" placeholder='Enter your meal carbs' />
 
                         <label className='mt-2'>Choose Image</label>
                         <input onChange={handleImage} type="file" className='form-control' />
