@@ -20,7 +20,7 @@ function App() {
       <Navbar/>
       <ToastContainer/>
       <Routes>
-        <Route path= '/home' element={<Homepage/>}/>
+        <Route path= '/' element={<Homepage/>}/>
         <Route path= '/register' element={<Registerpage/>}/>
         <Route path= '/login' element={<Loginpage/>}/>
         <Route path= '/contact-us' element={<ContactUs/>}/>

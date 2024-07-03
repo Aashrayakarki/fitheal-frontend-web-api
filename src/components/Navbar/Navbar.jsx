@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item me-5">
-                                <a className="nav-link" href='/home'>Home</a>
+                                <a className="nav-link" href='/'>Home</a>
                             </li>
                             <li className="nav-item me-5">
                                 <a className="nav-link" href="/admin/exercise">Exercises</a>

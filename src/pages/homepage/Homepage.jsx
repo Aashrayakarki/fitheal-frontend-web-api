@@ -67,6 +67,17 @@ const Homepage = () => {
                       )
                       )}
               </div>
+
+              <h2 className="mt-5">Featured Meal Plans</h2>
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                  {
+                      meals.map((singleMeal) => (
+                          <div class="col">
+                              <MealCard mealInformation={singleMeal} color={"orange"}/>
+                          </div>
+                      )
+                      )}
+              </div>
           </div>
       </>
   )
