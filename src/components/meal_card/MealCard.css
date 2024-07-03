@@ -1,31 +1,17 @@
 .custom-card {
-    position: relative;
-    margin-bottom: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .custom-card-img {
-    width: 100%;
-    height: auto;
+    height: 200px; /* Adjust the height as needed */
+    object-fit: cover;
 }
 
 .card-body {
-    text-align: center;
-}
-
-.card-body .d-flex {
-    margin-top: 10px;
-}
-
-.card-body .d-flex div {
-    text-align: center;
-    width: 25%;
-}
-
-.card-title {
-    font-size: 1.25rem;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #555;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

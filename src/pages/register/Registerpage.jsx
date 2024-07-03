@@ -14,6 +14,10 @@ const Registerpage = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
+    const [height, setHeight] = useState('')
+    const [weight, setWeight] = useState('')
+    const [age, setAge] = useState('')
+    const [gender, setGender] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -23,6 +27,10 @@ const Registerpage = () => {
     const [lastNameError, setLastNameError] = useState('')
     const [emailError, setEmailError] = useState('')
     const [phoneNumberError, setPhoneNumberError] = useState('')
+    const [heightError, setHeightError] = useState('')
+    const [weightError, setWeightError] = useState('')
+    const [ageError, setAgeError] = useState('')
+    const [genderError, setGenderError] = useState('')
     const [passwordError, setPasswordError] = useState('')
     const [confirmPasswordError, setConfirmPasswordError] = useState('')
 
@@ -43,6 +51,22 @@ const Registerpage = () => {
 
     const handlePhoneNumber = (e) => {
         setPhoneNumber(e.target.value);
+    }
+
+    const handleHeight = (e) => {
+        setHeight(e.target.value);
+    }
+
+    const handleWeight = (e) => {
+        setWeight(e.target.value);
+    }
+
+    const handleAge = (e) => {
+        setAge(e.target.value);
+    }
+
+    const handleGender = (e) => {
+        setGender(e.target.value);
     }
 
     const handlePassword = (e) => {
@@ -77,6 +101,26 @@ const Registerpage = () => {
             isValid = false;
         }
 
+        if (height.trim() == '') {
+            setHeightError("Height is required")
+            isValid = false;
+        }
+
+        if (weight.trim() == '') {
+            setWeightError("Weight is required")
+            isValid = false;
+        }
+
+        if (age.trim() == '') {
+            setAgeError("Age is required")
+            isValid = false;
+        }
+
+        if (gender.trim() == '') {
+            setGenderError("Gender is required")
+            isValid = false;
+        }
+
         if (password.trim() == '') {
             setPasswordError("Password is required")
             isValid = false;
@@ -107,6 +151,11 @@ const Registerpage = () => {
             firstName: firstName,
             lastName: lastName,
             email: email,
+            phoneNumber: phoneNumber,
+            height: height,
+            weight: weight,
+            age: age,
+            gender: gender,
             password: password,
             confirmPassword: confirmPassword
         }
@@ -139,7 +188,7 @@ const Registerpage = () => {
                     <h2>Create an account</h2>
                     <form className='w-50'>
                         <div>
-                            Let’s get started up so you can access your personal account.
+                            Lets get started up so you can access your personal account.
                         </div>
                         <div className="form-group-row mt-2">
                             <div className="form-group">
@@ -165,6 +214,35 @@ const Registerpage = () => {
                                 {phoneNumberError && <p className="text-danger">{phoneNumberError}</p>}
                             </div>
                         </div>
+
+                        <div className="form-group-row">
+                            <div className="form-group">
+                                <label>Height:</label>
+                                <input onChange={handleHeight} type="text" className='form-control' placeholder='Enter your height (in cm)' />
+                                {heightError && <p className="text-danger">{heightError}</p>}
+                            </div>
+                            <div className="form-group">
+                                <label>Weight:</label>
+                                <input onChange={handleWeight} type="text" className='form-control' placeholder='Enter your weight (in kg)' />
+                                {weightError && <p className="text-danger">{weightError}</p>}
+                            </div>
+                        <div className="form-group">
+                            <label>Age:</label>
+                            <input onChange={handleAge} type="text" className='form-control' placeholder='Enter your age' />
+                            {ageError && <p className="text-danger">{ageError}</p>}
+                        </div>
+                        <div className="form-group">
+                            <label>Gender:</label>
+                            <select onChange={handleGender} className='form-control'>
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            {genderError && <p className="text-danger">{genderError}</p>}
+                        </div>
+                    </div>
+            
                         <div className="password-container">
                             <label className="mt-2">Password :</label>
                             <input
