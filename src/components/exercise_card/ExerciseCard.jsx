@@ -16,7 +16,7 @@ const ExerciseCard = ({ exerciseInformation, color }) => {
                     <h5 className="card-title text-danger">{exerciseInformation.exerciseCalories} cal</h5>
                 </div>
                 <p className="card-text">{exerciseInformation.exerciseTime.slice(0, 40)} minutes</p>
-                <a href="#" className="btn btn-outline-dark w-100">Go somewhere</a>
+                <a href="#" className="btn btn-outline-dark w-100">Details</a>
             </div>
         </div>
     );

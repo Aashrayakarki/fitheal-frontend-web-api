@@ -25,6 +25,12 @@ export const registerUserApi = (data) => Api.post('/api/user/register', data)
 //Login API
 export const loginUserApi = (data) => Api.post('/api/user/login', data)
 
+//Get User API
+export const getSingleUser = (_id) => Api.get(`/api/user/get_single_user/${_id}`, config) // Use id parameter
+
+//Update User API
+export const updateUserApi = (data) => Api.put('/api/user/update_user', data, config)
+
 //Create Exercise API
 export const createExerciseApi = (data) => Api.post('/api/exercise/create', data)
 
@@ -40,6 +46,9 @@ export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${i
 //Delete Exercise
 export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config)
 
+//pagination for exercises
+export const paginationExercises = (page) => Api.get(`/api/exercise/pagination_exercise?page=${page}`, config)
+
 //Create Meal Plan API
 export const createMealApi = (data) => Api.post('/api/meal/create_meal', data)
 
@@ -54,5 +63,8 @@ export const updateMealApi = (id, data) => Api.put(`/api/meal/update_meal/${id}`
 
 //Delete Meal Plan
 export const deleteMealApi = (id) => Api.delete(`/api/meal/delete_meal/${id}`)
+
+//pagination for meals
+export const paginationMeals = (page) => Api.get(`/api/meal/pagination_meal?page=${page}`, config)
 
 //http://localhost:5000/test

@@ -3,7 +3,8 @@ import './MealCard.css';
 
 const MealCard = ({ mealInformation }) => {
     return (
-        <div className="card custom-card" style={{ width: '18rem' }}>
+        <div>
+            <div className="card custom-card" style={{ width: '18rem' }}>
             <img 
                 src={`http://localhost:5000/products/${mealInformation.mealImage}`} 
                 className="card-img-top custom-card-img" 
@@ -31,6 +32,9 @@ const MealCard = ({ mealInformation }) => {
                 </div>
             </div>
         </div>
+        
+
+        </div>        
     );
 };
 

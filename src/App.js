@@ -13,6 +13,7 @@ import UpdateExercise from './pages/admin/update_exercise/UpdateExercise';
 import ExerciseAdmin from './pages/admin/exercise_admin/ExerciseAdmin';
 import MealplanAdmin from './pages/admin/meal_plan_admin/MealplanAdmin';
 import UpdateMeal from './pages/admin/update_meal/UpdateMeal';
+import ProfilePage from './pages/Profile/Profilepage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path= '/register' element={<Registerpage/>}/>
         <Route path= '/login' element={<Loginpage/>}/>
         <Route path= '/contact-us' element={<ContactUs/>}/>
+        <Route path= '/profile/:id' element={<ProfilePage/>}/>
 
         {/* Exercise Admin routes */}
         <Route path='/admin/exercise' element={<ExerciseAdmin/>} />

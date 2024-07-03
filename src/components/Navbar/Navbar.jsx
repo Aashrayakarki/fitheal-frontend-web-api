@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    // Get user data from local storage
     const user = JSON.parse(localStorage.getItem('userData'));
+    console.log('User from local storage:', user); // Log the user object
 
     // Logout function
     const handlelogout = () => {
@@ -42,7 +42,9 @@ const Navbar = () => {
                                     Welcome
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end">
-                                    <li><a className="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <Link to={`/profile/${user._id}`} className="dropdown-item">Profile</Link> 
+                                    </li>
                                     <li><a className="dropdown-item" href="#">Settings</a></li>
                                     <li><button onClick={handlelogout} className="dropdown-item">Log Out</button></li>
                                 </ul>

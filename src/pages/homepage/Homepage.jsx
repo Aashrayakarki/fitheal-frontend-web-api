@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Homepage.css'
-import { getAllExercises, getAllMeals } from '../../apis/Api'
+import { paginationExercises, paginationMeals } from '../../apis/Api'
 import ExerciseCard from '../../components/exercise_card/ExerciseCard'
 import MealCard from '../../components/meal_card/MealCard'
 
@@ -9,7 +9,7 @@ const Homepage = () => {
   const [exercises, setExercises] = useState([])
 
   useEffect(() => {
-      getAllExercises().then((res) => {
+      paginationExercises().then((res) => {
           //response: res.data.exercises
           setExercises(res.data.data)
       }).catch((error) => {
@@ -20,7 +20,7 @@ const Homepage = () => {
   const [meals, setMeals] = useState([])
 
   useEffect(() => {
-      getAllMeals().then((res) => {
+      paginationMeals().then((res) => {
           //response: res.data.exercises
           setMeals(res.data.data)
       }).catch((error) => {
