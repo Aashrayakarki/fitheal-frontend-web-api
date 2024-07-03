@@ -192,12 +192,12 @@ const Registerpage = () => {
                         </div>
                         <div className="form-group-row mt-2">
                             <div className="form-group">
-                                <label>fname: </label>
+                                <label>First name: </label>
                                 <input onChange={handlefname} type="text" className='form-control' placeholder='Enter your first name' />
                                 {fnameError && <p className="text-danger">{fnameError}</p>}
                             </div>
                             <div className="form-group">
-                                <label>lname:</label>
+                                <label>Last name:</label>
                                 <input onChange={handlelname} type="text" className='form-control' placeholder='Enter your last name' />
                                 {lnameError && <p className="text-danger">{lnameError}</p>}
                             </div>
@@ -233,7 +233,10 @@ const Registerpage = () => {
                         </div>
                         <div className="form-group">
                             <label>Gender:</label>
-                            <input onChange={handleGender} type="text" className='form-control' placeholder='Enter your gender' />
+                            <select onChange={handleGender} className='form-control'>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            </select>
                             {genderError && <p className="text-danger">{genderError}</p>}
                         </div>
                     </div>

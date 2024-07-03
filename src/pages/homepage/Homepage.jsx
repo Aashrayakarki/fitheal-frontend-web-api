@@ -1,37 +1,82 @@
-import React, { useEffect, useState } from 'react'
-import './Homepage.css'
-import { paginationExercises, paginationMeals } from '../../apis/Api'
-import ExerciseCard from '../../components/exercise_card/ExerciseCard'
-import MealCard from '../../components/meal_card/MealCard'
+import React, { useEffect, useState } from 'react';
+import './Homepage.css';
+import { paginationExercises, paginationMeals } from '../../apis/Api';
+import ExerciseCard from '../../components/exercise_card/ExerciseCard';
+import MealCard from '../../components/meal_card/MealCard';
 
 const Homepage = () => {
+    const [exercises, setExercises] = useState([]);
+    const [exercisePage, setExercisePage] = useState(1);
+    const [exerciseTotalPages, setExerciseTotalPages] = useState(1);
 
-  const [exercises, setExercises] = useState([])
+    const [meals, setMeals] = useState([]);
+    const [mealPage, setMealPage] = useState(1);
+    const [mealTotalPages, setMealTotalPages] = useState(1);
 
-  useEffect(() => {
-      paginationExercises().then((res) => {
-          //response: res.data.exercises
-          setExercises(res.data.data)
-      }).catch((error) => {
-          console.log(error)
-      })
-  }, [])
+    useEffect(() => {
+        fetchExercises(exercisePage);
+    }, [exercisePage]); // Fetch exercises whenever exercisePage changes
 
-  const [meals, setMeals] = useState([])
+    useEffect(() => {
+        fetchMeals(mealPage);
+    }, [mealPage]); // Fetch meals whenever mealPage changes
 
-  useEffect(() => {
-      paginationMeals().then((res) => {
-          //response: res.data.exercises
-          setMeals(res.data.data)
-      }).catch((error) => {
-          console.log(error)
-      })
-  }, [])
+    const fetchExercises = async (page) => {
+        try {
+            const res = await paginationExercises(page);
+            setExercises(res.data.data);
+            setExerciseTotalPages(res.data.pagination.totalPages);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-  return (
-      <>
-          <div className='container'>
-              <div id="carouselExampleCaptions" class="carousel slide">
+    const fetchMeals = async (page) => {
+        try {
+            const res = await paginationMeals(page);
+            setMeals(res.data.data);
+            setMealTotalPages(res.data.pagination.totalPages);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleExercisePageChange = (page) => {
+        setExercisePage(page);
+    };
+
+    const handleMealPageChange = (page) => {
+        setMealPage(page);
+    };
+
+    // Generate page numbers for exercises
+    const exercisePageNumbers = [];
+    for (let i = 1; i <= exerciseTotalPages; i++) {
+        exercisePageNumbers.push(
+            <li key={i} className={`page-item ${exercisePage === i && 'active'}`}>
+                <button className="page-link" onClick={() => handleExercisePageChange(i)}>
+                    {i}
+                </button>
+            </li>
+        );
+    }
+
+    // Generate page numbers for meals
+    const mealPageNumbers = [];
+    for (let i = 1; i <= mealTotalPages; i++) {
+        mealPageNumbers.push(
+            <li key={i} className={`page-item ${mealPage === i && 'active'}`}>
+                <button className="page-link" onClick={() => handleMealPageChange(i)}>
+                    {i}
+                </button>
+            </li>
+        );
+    }
+
+    return (
+        <>
+            <div className='container'>
+            <div id="carouselExampleCaptions" class="carousel slide">
                   <div class="carousel-indicators">
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -69,30 +114,52 @@ const Homepage = () => {
                       <span class="visually-hidden">Next</span>
                   </button>
               </div>
-              <h2 className="mt-5">Featured Exercises</h2>
-              <div class="row row-cols-1 row-cols-md-4 g-4">
-                  {
-                      exercises.map((singleExercise) => (
-                          <div class="col">
-                              <ExerciseCard exerciseInformation={singleExercise} color={"orange"}/>
-                          </div>
-                      )
-                      )}
-              </div>
+                <h2 className="mt-5">Featured Exercises</h2>
+                <div className="row row-cols-1 row-cols-md-4 g-4">
+                    {exercises.map((singleExercise) => (
+                        <div key={singleExercise._id} className="col">
+                            <ExerciseCard exerciseInformation={singleExercise} color={"orange"} />
+                        </div>
+                    ))}
+                </div>
 
-              <h2 className="mt-5">Featured Meal Plans</h2>
-              <div class="row row-cols-1 row-cols-md-4 g-4">
-                  {
-                      meals.map((singleMeal) => (
-                          <div class="col">
-                              <MealCard mealInformation={singleMeal} color={"orange"}/>
-                          </div>
-                      )
-                      )}
-              </div>
-          </div>
-      </>
-  )
-}
+                {/* Exercise pagination */}
+                <nav aria-label="Exercise Pagination">
+                    <ul className="pagination justify-content-center mt-3">
+                        <li className={`page-item ${exercisePage === 1 && 'disabled'}`}>
+                            <button className="page-link" onClick={() => handleExercisePageChange(exercisePage - 1)}>Previous</button>
+                        </li>
+                        {exercisePageNumbers}
+                        <li className={`page-item ${exercisePage === exerciseTotalPages && 'disabled'}`}>
+                            <button className="page-link" onClick={() => handleExercisePageChange(exercisePage + 1)}>Next</button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <h2 className="mt-5">Featured Meal Plans</h2>
+                <div className="row row-cols-1 row-cols-md-4 g-4">
+                    {meals.map((singleMeal) => (
+                        <div key={singleMeal._id} className="col">
+                            <MealCard mealInformation={singleMeal} color={"orange"} />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Meal pagination */}
+                <nav aria-label="Meal Pagination">
+                    <ul className="pagination justify-content-center mt-3">
+                        <li className={`page-item ${mealPage === 1 && 'disabled'}`}>
+                            <button className="page-link" onClick={() => handleMealPageChange(mealPage - 1)}>Previous</button>
+                        </li>
+                        {mealPageNumbers}
+                        <li className={`page-item ${mealPage === mealTotalPages && 'disabled'}`}>
+                            <button className="page-link" onClick={() => handleMealPageChange(mealPage + 1)}>Next</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </>
+    );
+};
 
 export default Homepage;

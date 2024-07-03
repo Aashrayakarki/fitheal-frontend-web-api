@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const user = JSON.parse(localStorage.getItem('userData'));
-    console.log('User from local storage:', user); // Log the user object
 
     // Logout function
-    const handlelogout = () => {
+    const handleLogout = () => {
         localStorage.clear();
         window.location.href = '/login';
     };
@@ -38,15 +37,19 @@ const Navbar = () => {
                     <div className="d-flex align-items-center">
                         {user ? (
                             <div className="dropdown">
-                                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Welcome
-                                </a>
-                                <ul className="dropdown-menu dropdown-menu-end">
+                                <button className="btn orange-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {`Welcome, ${user.fname}`}
+                                </button>
+                                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <Link to={`/profile/${user._id}`} className="dropdown-item">Profile</Link> 
+                                        <Link to={`/profile/${user._id}`} className="dropdown-item">Profile</Link>
                                     </li>
-                                    <li><a className="dropdown-item" href="#">Settings</a></li>
-                                    <li><button onClick={handlelogout} className="dropdown-item">Log Out</button></li>
+                                    <li>
+                                        <a className="dropdown-item" href="#">Settings</a>
+                                    </li>
+                                    <li>
+                                        <button onClick={handleLogout} className="dropdown-item">Log Out</button>
+                                    </li>
                                 </ul>
                             </div>
                         ) : (

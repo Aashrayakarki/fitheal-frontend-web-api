@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css'
 import {EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
 import { Button } from "antd";
+import { Navigate } from 'react-router-dom';
 
 
 const Loginpage = () => {
@@ -61,7 +62,6 @@ const Loginpage = () => {
 
                 const convertedData = JSON.stringify(res.data.userData);
                 localStorage.setItem('userData', convertedData);
-
             }
         })
     }

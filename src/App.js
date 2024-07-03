@@ -14,6 +14,8 @@ import ExerciseAdmin from './pages/admin/exercise_admin/ExerciseAdmin';
 import MealplanAdmin from './pages/admin/meal_plan_admin/MealplanAdmin';
 import UpdateMeal from './pages/admin/update_meal/UpdateMeal';
 import ProfilePage from './pages/Profile/Profilepage';
+import AdminRoutes from './protected_routes/AdminRoutes';
+import UserRoutes from './protected_routes/UserRoutes';
 
 function App() {
   return (
@@ -25,15 +27,20 @@ function App() {
         <Route path= '/register' element={<Registerpage/>}/>
         <Route path= '/login' element={<Loginpage/>}/>
         <Route path= '/contact-us' element={<ContactUs/>}/>
-        <Route path= '/profile/:id' element={<ProfilePage/>}/>
 
         {/* Exercise Admin routes */}
+        <Route element={<AdminRoutes/>}>
         <Route path='/admin/exercise' element={<ExerciseAdmin/>} />
         <Route path='/admin/update_exercise/:id' element={<UpdateExercise/>} />
 
         {/* Meal Plan Admin routes */}
         <Route path='/admin/meal' element={<MealplanAdmin/>} />
         <Route path='/admin/update_meal/:id' element={<UpdateMeal/>} />
+        </Route>
+
+        <Route element={<UserRoutes/>}>
+          <Route path='/profile/:id' element={<ProfilePage/>}/>
+        </Route>
 
       </Routes>
       <Footer/>
