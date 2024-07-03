@@ -10,10 +10,10 @@ import { Button } from 'antd';
 import Slider from 'react-slick';
 
 const Registerpage = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+    const [fname, setfname] = useState('')
+    const [lname, setlname] = useState('')
     const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
+    const [phone, setPhone] = useState('')
     const [height, setHeight] = useState('')
     const [weight, setWeight] = useState('')
     const [age, setAge] = useState('')
@@ -23,10 +23,10 @@ const Registerpage = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
 
-    const [firstNameError, setFirstNameError] = useState('')
-    const [lastNameError, setLastNameError] = useState('')
+    const [fnameError, setfnameError] = useState('')
+    const [lnameError, setlnameError] = useState('')
     const [emailError, setEmailError] = useState('')
-    const [phoneNumberError, setPhoneNumberError] = useState('')
+    const [phoneError, setPhoneError] = useState('')
     const [heightError, setHeightError] = useState('')
     const [weightError, setWeightError] = useState('')
     const [ageError, setAgeError] = useState('')
@@ -37,20 +37,20 @@ const Registerpage = () => {
     const navigate = useNavigate();
 
 
-    const handleFirstname = (e) => {
-        setFirstName(e.target.value);
+    const handlefname = (e) => {
+        setfname(e.target.value);
     }
 
-    const handleLastname = (e) => {
-        setLastName(e.target.value);
+    const handlelname = (e) => {
+        setlname(e.target.value);
     }
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
     }
 
-    const handlePhoneNumber = (e) => {
-        setPhoneNumber(e.target.value);
+    const handlePhone = (e) => {
+        setPhone(e.target.value);
     }
 
     const handleHeight = (e) => {
@@ -81,13 +81,13 @@ const Registerpage = () => {
         var isValid = true;
 
         //validate the first name
-        if (firstName.trim() == '') {
-            setFirstNameError("First name is required")
+        if (fname.trim() == '') {
+            setfnameError("First name is required")
             isValid = false;
         }
 
-        if (lastName.trim() == '') {
-            setLastNameError("Last name is required")
+        if (lname.trim() == '') {
+            setlnameError("Last name is required")
             isValid = false;
         }
 
@@ -96,8 +96,8 @@ const Registerpage = () => {
             isValid = false;
         }
 
-        if (phoneNumber.trim() == '') {
-            setPhoneNumberError("Phone Number is required")
+        if (phone.trim() == '') {
+            setPhoneError("Phone Number is required")
             isValid = false;
         }
 
@@ -148,10 +148,10 @@ const Registerpage = () => {
         }
 
         const data = {
-            firstName: firstName,
-            lastName: lastName,
+            fname: fname,
+            lname: lname,
             email: email,
-            phoneNumber: phoneNumber,
+            phone: phone,
             height: height,
             weight: weight,
             age: age,
@@ -192,14 +192,14 @@ const Registerpage = () => {
                         </div>
                         <div className="form-group-row mt-2">
                             <div className="form-group">
-                                <label>Firstname: </label>
-                                <input onChange={handleFirstname} type="text" className='form-control' placeholder='Enter your first name' />
-                                {firstNameError && <p className="text-danger">{firstNameError}</p>}
+                                <label>fname: </label>
+                                <input onChange={handlefname} type="text" className='form-control' placeholder='Enter your first name' />
+                                {fnameError && <p className="text-danger">{fnameError}</p>}
                             </div>
                             <div className="form-group">
-                                <label>Lastname:</label>
-                                <input onChange={handleLastname} type="text" className='form-control' placeholder='Enter your last name' />
-                                {lastNameError && <p className="text-danger">{lastNameError}</p>}
+                                <label>lname:</label>
+                                <input onChange={handlelname} type="text" className='form-control' placeholder='Enter your last name' />
+                                {lnameError && <p className="text-danger">{lnameError}</p>}
                             </div>
                         </div>
                         <div className="form-group-row">
@@ -210,20 +210,20 @@ const Registerpage = () => {
                             </div>
                             <div className="form-group">
                                 <label>Phone Number:</label>
-                                <input onChange={handlePhoneNumber} type="text" className='form-control' placeholder='Enter your phone number' />
-                                {phoneNumberError && <p className="text-danger">{phoneNumberError}</p>}
+                                <input onChange={handlePhone} type="text" className='form-control' placeholder='Enter your phone number' />
+                                {phoneError && <p className="text-danger">{phoneError}</p>}
                             </div>
                         </div>
 
                         <div className="form-group-row">
                             <div className="form-group">
                                 <label>Height:</label>
-                                <input onChange={handleHeight} type="text" className='form-control' placeholder='Enter your height (in cm)' />
+                                <input onChange={handleHeight} type="text" className='form-control' placeholder='(in cm)' />
                                 {heightError && <p className="text-danger">{heightError}</p>}
                             </div>
                             <div className="form-group">
                                 <label>Weight:</label>
-                                <input onChange={handleWeight} type="text" className='form-control' placeholder='Enter your weight (in kg)' />
+                                <input onChange={handleWeight} type="text" className='form-control' placeholder='(in kg)' />
                                 {weightError && <p className="text-danger">{weightError}</p>}
                             </div>
                         <div className="form-group">
@@ -233,18 +233,13 @@ const Registerpage = () => {
                         </div>
                         <div className="form-group">
                             <label>Gender:</label>
-                            <select onChange={handleGender} className='form-control'>
-                                <option value="">Select</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
+                            <input onChange={handleGender} type="text" className='form-control' placeholder='Enter your gender' />
                             {genderError && <p className="text-danger">{genderError}</p>}
                         </div>
                     </div>
             
                         <div className="password-container">
-                            <label className="mt-2">Password :</label>
+                            <label>Password :</label>
                             <input
                                 type={passwordVisible ? 'text' : 'password'}
                                 onChange={(e) => setPassword(e.target.value)}
