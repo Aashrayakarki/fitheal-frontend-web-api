@@ -164,7 +164,7 @@ const MealplanAdmin = () => {
                                     <td>{singleMeal.mealCarbs}</td>
                                     <td>{singleMeal.mealTime}</td>
                                     <td>
-                                        <Link to={`/admin/update/${singleMeal._id}`} className="btn orange-btn">Edit</Link>
+                                        <Link to={`/admin/update_meal/${singleMeal._id}`} className="btn orange-btn">Edit</Link>
                                         <button onClick={() => handleDelete(singleMeal._id)} className="btn btn-dark ms-1">Delete</button>
                                     </td>
                                 </tr>

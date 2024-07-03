@@ -1,21 +1,34 @@
 import React from 'react';
+import './MealCard.css';
 
-const MealCard = ({ mealInformation, color }) => {
+const MealCard = ({ mealInformation }) => {
     return (
         <div className="card custom-card" style={{ width: '18rem' }}>
-            {/* <span style={{ backgroundColor: color }} className='badge position-absolute top-0'>{mealInformation.exerciseLevel}</span> */}
             <img 
                 src={`http://localhost:5000/products/${mealInformation.mealImage}`} 
                 className="card-img-top custom-card-img" 
                 alt={mealInformation.mealName}
             />
             <div className="card-body">
-                <div className='d-flex justify-content-between'>
+            <div className="d-flex justify-content-between">
                     <h5 className="card-title">{mealInformation.mealName}</h5>
-                    <h5 className="card-title text-danger">{mealInformation.mealCalories} cal</h5>
+                    <h5 className="card-title text-danger">{mealInformation.mealTime} minutes</h5>
                 </div>
-                <p className="card-text">{mealInformation.mealTime.slice(0, 40)} minutes</p>
-                <a href="#" className="btn btn-outline-dark w-100">Go somewhere</a>
+
+                <div className="d-flex justify-content-between">
+                    <div className="d-flex flex-column align-items-center">
+                        <span>{mealInformation.mealProteins}g</span>
+                        <span>proteins</span>
+                    </div>
+                    <div className="d-flex flex-column align-items-center">
+                        <span>{mealInformation.mealCalories}</span>
+                        <span>calories</span>
+                    </div>
+                    <div className="d-flex flex-column align-items-center">
+                        <span>{mealInformation.mealCarbs}g</span>
+                        <span>carbs</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
