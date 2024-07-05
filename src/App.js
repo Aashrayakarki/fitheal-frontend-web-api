@@ -39,7 +39,7 @@ function App() {
         </Route>
 
         <Route element={<UserRoutes/>}>
-          <Route path='/profile/:id' element={<ProfilePage/>}/>
+          <Route path='/profile/:_id' element={<ProfilePage/>}/>
         </Route>
 
       </Routes>

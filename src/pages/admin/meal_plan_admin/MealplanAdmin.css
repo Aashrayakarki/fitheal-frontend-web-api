@@ -1,41 +1,26 @@
-.video-size {
-    width: 150px; /* Set the desired width */
-    height: 100px; /* Set the desired height */
-    object-fit: cover; /* Adjusts the video to cover the given size without distortion */
-    
-}
-
-.preview-size {
-    width: 100%; /* Makes the video responsive */
-    height: auto;
-    border-radius: 15px; /* Rounds the corners of the video */
-    object-fit: cover; /* Ensures the video covers the given area */
-}
-
 .container {
     max-width: 1200px;
     margin: auto;
-    margin-bottom: 20px;
 }
 
-.btn-add-exercise {
-    background-color: orange;
+.btn-add-meal {
+    background-color: #ff5722;
     color: white;
     transition: background-color 0.3s;
 }
 
-.btn-add-exercise:hover {
-    background-color: orange;
+.btn-add-meal:hover {
+    background-color: #e64a19;
 }
 
-.exercise-cards {
+.meal-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.exercise-card {
+.meal-card {
     width: 250px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -44,40 +29,40 @@
     overflow: hidden;
 }
 
-.exercise-card:hover {
+.meal-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.exercise-card-img {
+.meal-card-img {
     width: 100%;
     height: 150px;
     object-fit: cover;
 }
 
-.exercise-card-body {
+.meal-card-body {
     padding: 15px;
     text-align: center;
 }
 
-.exercise-card-title {
+.meal-card-title {
     font-size: 1.25em;
     margin-bottom: 10px;
 }
 
-.exercise-card-text {
+.meal-card-text {
     font-size: 0.9em;
     margin: 5px 0;
 }
 
-.exercise-card-actions {
+.meal-card-actions {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
 }
 
 .btn-edit, .btn-delete {
-    background-color: orange;
+    background-color: #ff5722;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -86,5 +71,5 @@
 }
 
 .btn-edit:hover, .btn-delete:hover {
-    background-color: orange;
+    background-color: #e64a19;
 }
