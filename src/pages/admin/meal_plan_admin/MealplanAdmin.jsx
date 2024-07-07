@@ -81,45 +81,7 @@ const MealplanAdmin = () => {
     return (
         <>
             <div className='container mt-3'>
-                <div className='d-flex justify-content-between'>
-                    <button type="button" className="btn btn-add-meal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add meal plan
-                    </button>
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="exampleModalLabel">Create a new meal plan</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <form action=''>
-                                        <label>Meal Name</label>
-                                        <input onChange={(e) => setMealName(e.target.value)} type="text" className='form-control' placeholder='Enter meal name'></input>
-                                        <label className='mt-2'>Meal Time</label>
-                                        <input onChange={(e) => setMealTime(e.target.value)} type="number" className='form-control' placeholder='Enter meal time'></input>
-                                        <label className='mt-2'>Meal Calories</label>
-                                        <input onChange={(e) => setMealCalories(e.target.value)} type="number" className='form-control' placeholder='Enter meal calories'></input>
-                                        <label className='mt-2'>Meal Proteins</label>
-                                        <input onChange={(e) => setMealProteins(e.target.value)} type="number" className='form-control' placeholder='Enter meal proteins'></input>
-                                        <label className='mt-2'>Meal Carbs</label>
-                                        <input onChange={(e) => setMealCarbs(e.target.value)} type="number" className='form-control' placeholder='Enter meal carbs'></input>
-                                        <label className='mt-2'>Choose meal image</label>
-                                        <input onChange={handleImage} type='file' className='form-control'/>
-                                        {
-                                            previewImage && <img src={previewImage} className='img-fluid rounded mt-2' alt='Preview'></img>
-                                        }
-                                    </form>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button onClick={handleSubmit} type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="meal-cards mt-3">
+                <div className='meal-cards mt-3'>
                     {
                         meals.map((singleMeal) => (
                             <div className="meal-card" key={singleMeal._id}>
@@ -138,6 +100,44 @@ const MealplanAdmin = () => {
                             </div>
                         ))
                     }
+                </div>
+
+                <button type="button" className="btn btn-add-meal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    +
+                </button>
+
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">Create a new meal plan</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <form action=''>
+                                    <label>Meal Name</label>
+                                    <input onChange={(e) => setMealName(e.target.value)} type="text" className='form-control' placeholder='Enter meal name'></input>
+                                    <label className='mt-2'>Meal Time</label>
+                                    <input onChange={(e) => setMealTime(e.target.value)} type="number" className='form-control' placeholder='Enter meal time'></input>
+                                    <label className='mt-2'>Meal Calories</label>
+                                    <input onChange={(e) => setMealCalories(e.target.value)} type="number" className='form-control' placeholder='Enter meal calories'></input>
+                                    <label className='mt-2'>Meal Proteins</label>
+                                    <input onChange={(e) => setMealProteins(e.target.value)} type="number" className='form-control' placeholder='Enter meal proteins'></input>
+                                    <label className='mt-2'>Meal Carbs</label>
+                                    <input onChange={(e) => setMealCarbs(e.target.value)} type="number" className='form-control' placeholder='Enter meal carbs'></input>
+                                    <label className='mt-2'>Choose meal image</label>
+                                    <input onChange={handleImage} type='file' className='form-control'/>
+                                    {
+                                        previewImage && <img src={previewImage} className='img-fluid rounded mt-2' alt='Preview'></img>
+                                    }
+                                </form>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button onClick={handleSubmit} type="button" className="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

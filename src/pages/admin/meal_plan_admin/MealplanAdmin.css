@@ -1,16 +1,30 @@
 .container {
     max-width: 1200px;
     margin: auto;
+    position: relative;
 }
 
 .btn-add-meal {
-    background-color: #ff5722;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: orange;
     color: white;
-    transition: background-color 0.3s;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
 }
 
 .btn-add-meal:hover {
-    background-color: #e64a19;
+    background-color: orange;
+    transform: scale(1.1);
 }
 
 .meal-cards {
@@ -62,7 +76,7 @@
 }
 
 .btn-edit, .btn-delete {
-    background-color: #ff5722;
+    background-color: orange;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -71,5 +85,5 @@
 }
 
 .btn-edit:hover, .btn-delete:hover {
-    background-color: #e64a19;
+    background-color: orange;
 }

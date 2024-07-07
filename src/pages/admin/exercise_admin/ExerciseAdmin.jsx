@@ -69,7 +69,7 @@ const ExerciseAdmin = () => {
                     setExercises(exercises.filter(exercise => exercise._id !== id));
                 }
             }).catch((error) => {
-                if (error.res.status === 500){
+                if (error.res.status === 500) {
                     toast.error(error.res.data.message);
                 }
             });
@@ -79,52 +79,11 @@ const ExerciseAdmin = () => {
     return (
         <>
             <div className='container mt-3'>
-                <div className='d-flex justify-content-between'>
-                    <button type="button" className="btn btn-add-exercise" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add exercise
-                    </button>
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="exampleModalLabel">Create a new exercise</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <form action=''>
-                                        <label>Exercise Name</label>
-                                        <input onChange={(e) => setExerciseName(e.target.value)} type="text" className='form-control' placeholder='Enter exercise name'></input>
-                                        <label className='mt-2'>Exercise Time</label>
-                                        <input onChange={(e) => setExerciseTime(e.target.value)} type="number" className='form-control' placeholder='Enter exercise time'></input>
-                                        <label className='mt-2'>Exercise Calories</label>
-                                        <input onChange={(e) => setExerciseCalories(e.target.value)} type="number" className='form-control' placeholder='Enter exercise calories'></input>
-                                        <label className='mt-2'>Choose Exercise Level</label>
-                                        <select onChange={(e) => setExerciseLevel(e.target.value)} className='form-control'>
-                                            <option value="Beginner">Beginner</option>
-                                            <option value="Amateur">Amateur</option>
-                                            <option value="Advanced">Advanced</option>
-                                            <option value="Elite">Elite</option>
-                                        </select>
-                                        <label className='mt-2'>Choose exercise video</label>
-                                        <input onChange={handleVideo} type='file' className='form-control'/>
-                                        {
-                                            previewVideo && <img src={previewVideo} className='img-fluid rounded mt-2' alt='Preview'></img>
-                                        }
-                                    </form>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button onClick={handleSubmit} type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div className="exercise-cards mt-3">
                     {
                         exercises.map((singleExercise) => (
                             <div className="exercise-card" key={singleExercise._id}>
-                                <img src={`http://localhost:5000/products/${singleExercise.exerciseVideo}`} alt='' className="exercise-card-img"/>
+                                <img src={`http://localhost:5000/products/${singleExercise.exerciseVideo}`} alt='' className="exercise-card-img" />
                                 <div className="exercise-card-body">
                                     <h5 className="exercise-card-title">{singleExercise.exerciseName}</h5>
                                     <p className="exercise-card-text">Time: {singleExercise.exerciseTime} min</p>
@@ -138,6 +97,48 @@ const ExerciseAdmin = () => {
                             </div>
                         ))
                     }
+                </div>
+
+                <button type="button" className="btn btn-add-exercise" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    +
+                </button>
+
+
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">Create a new exercise</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <form action=''>
+                                    <label>Exercise Name</label>
+                                    <input onChange={(e) => setExerciseName(e.target.value)} type="text" className='form-control' placeholder='Enter exercise name'></input>
+                                    <label className='mt-2'>Exercise Time</label>
+                                    <input onChange={(e) => setExerciseTime(e.target.value)} type="number" className='form-control' placeholder='Enter exercise time'></input>
+                                    <label className='mt-2'>Exercise Calories</label>
+                                    <input onChange={(e) => setExerciseCalories(e.target.value)} type="number" className='form-control' placeholder='Enter exercise calories'></input>
+                                    <label className='mt-2'>Choose Exercise Level</label>
+                                    <select onChange={(e) => setExerciseLevel(e.target.value)} className='form-control'>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Amateur">Amateur</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Elite">Elite</option>
+                                    </select>
+                                    <label className='mt-2'>Choose exercise video</label>
+                                    <input onChange={handleVideo} type='file' className='form-control' />
+                                    {
+                                        previewVideo && <img src={previewVideo} className='img-fluid rounded mt-2' alt='Preview'></img>
+                                    }
+                                </form>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button onClick={handleSubmit} type="button" className="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
