@@ -135,7 +135,7 @@ const ExerciseAdmin = () => {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button onClick={handleSubmit} type="button" className="btn btn-primary">Save changes</button>
+                                <button onClick={handleSubmit} type="button" className="btn orange-btn">Save changes</button>
                             </div>
                         </div>
                     </div>
