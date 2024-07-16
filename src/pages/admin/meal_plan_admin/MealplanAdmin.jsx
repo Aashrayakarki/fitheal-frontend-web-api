@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { createMealApi, deleteMealApi, getAllMeals } from '../../../apis/Api';
+import { createMealApi, deleteMealApi, getAllMeals, searchMeal } from '../../../apis/Api';
 import './MealplanAdmin.css';
 
 const MealplanAdmin = () => {
     const [meals, setMeals] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
     useEffect(() => {
-        getAllMeals().then((res) => {
-            setMeals(res.data.data);
-        }).catch((error) => {
-            console.log(error);
-        });
-    }, []);
-    console.log(meals);
+        if (searchQuery) {
+            searchMeal(searchQuery).then((res) => {
+                setMeals(res.data.data);
+            }).catch((error) => {
+                console.log(error);
+            });
+        } else {
+            getAllMeals().then((res) => {
+                setMeals(res.data.data);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    }, [searchQuery]);
+
 
     const [mealImage, setMealImage] = useState('');
     const [previewImage, setPreviewImage] = useState('');
@@ -78,9 +88,30 @@ const MealplanAdmin = () => {
         }
     };
 
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <>
             <div className='container mt-3'>
+            <div>
+                    <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
+                        <input 
+                            className="form-control me-2" 
+                            type="search" 
+                            placeholder="Search" 
+                            aria-label="Search"
+                            value={searchQuery}
+                            onChange={handleSearch}
+                        />
+                        <button className="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
                 <div className='meal-cards mt-3'>
                     {
                         meals.map((singleMeal) => (

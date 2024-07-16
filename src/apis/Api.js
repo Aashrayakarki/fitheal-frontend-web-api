@@ -70,4 +70,7 @@ export const deleteMealApi = (id) => Api.delete(`/api/meal/delete_meal/${id}`)
 //pagination for meals
 export const paginationMeals = (page) => Api.get(`/api/meal/pagination_meal?page=${page}`, config)
 
+//Search Meal Plan
+export const searchMeal = (search) => Api.get(`/api/meal/search_meal?search=${search}`, config)
+
 //http://localhost:5000/test
