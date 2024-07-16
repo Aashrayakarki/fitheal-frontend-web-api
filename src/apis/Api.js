@@ -44,7 +44,7 @@ export const getSingleExercise = (id) => Api.get(`/api/exercise/get_exercise/${i
 export const updateExerciseApi = (id, data) => Api.put(`/api/exercise/update/${id}`, data, config)
 
 //Delete Exercise
-export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config)
+export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`, config);
 
 //pagination for exercises
 export const paginationExercises = (page) => Api.get(`/api/exercise/pagination_exercise?page=${page}`, config)
@@ -56,16 +56,16 @@ export const searchExercise = (search) => Api.get(`/api/exercise/search_exercise
 export const createMealApi = (data) => Api.post('/api/meal/create_meal', data)
 
 //Get All Meal Plans API
-export const getAllMeals = () => Api.get('/api/meal/get_all_meals')
+export const getAllMeals = () => Api.get('/api/meal/get_all_meals', config)
 
 //Get Meal Plan
-export const getSingleMeal = (id) => Api.get(`/api/meal/get_meal/${id}`)
+export const getSingleMeal = (id) => Api.get(`/api/meal/get_meal/${id}`, config)
 
 //Update Meal Plan
-export const updateMealApi = (id, data) => Api.put(`/api/meal/update_meal/${id}`, data)
+export const updateMealApi = (id, data) => Api.put(`/api/meal/update_meal/${id}`, data, config)
 
 //Delete Meal Plan
-export const deleteMealApi = (id) => Api.delete(`/api/meal/delete_meal/${id}`)
+export const deleteMealApi = (id) => Api.delete(`/api/meal/delete_meal/${id}`, config)
 
 //pagination for meals
 export const paginationMeals = (page) => Api.get(`/api/meal/pagination_meal?page=${page}`, config)
