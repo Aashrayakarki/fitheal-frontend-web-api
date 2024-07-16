@@ -49,6 +49,9 @@ export const deleteExerciseApi = (id) => Api.delete(`/api/exercise/delete/${id}`
 //pagination for exercises
 export const paginationExercises = (page) => Api.get(`/api/exercise/pagination_exercise?page=${page}`, config)
 
+//Search Exercise
+export const searchExercise = (search) => Api.get(`/api/exercise/search_exercise?search=${search}`, config)
+
 //Create Meal Plan API
 export const createMealApi = (data) => Api.post('/api/meal/create_meal', data)
 

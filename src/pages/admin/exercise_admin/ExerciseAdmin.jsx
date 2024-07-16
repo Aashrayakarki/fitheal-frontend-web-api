@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { createExerciseApi, deleteExerciseApi, getAllExercises } from '../../../apis/Api';
+import { createExerciseApi, deleteExerciseApi, getAllExercises, searchExercise } from '../../../apis/Api';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import './ExerciseAdmin.css';
 
 const ExerciseAdmin = () => {
     const [exercises, setExercises] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
     useEffect(() => {
-        getAllExercises().then((res) => {
-            setExercises(res.data.data);
-        }).catch((error) => {
-            console.log(error);
-        });
-    }, []);
-    console.log(exercises);
+        if (searchQuery) {
+            searchExercise(searchQuery).then((res) => {
+                setExercises(res.data.data);
+            }).catch((error) => {
+                console.log(error);
+            });
+        } else {
+            getAllExercises().then((res) => {
+                setExercises(res.data.data);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    }, [searchQuery]);
 
     const [exerciseVideo, setExerciseVideo] = useState('');
     const [previewVideo, setPreviewVideo] = useState('');
@@ -76,9 +85,31 @@ const ExerciseAdmin = () => {
         }
     };
 
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        // Trigger the useEffect to call the search API
+    };
+
     return (
         <>
             <div className='container mt-3'>
+            <div>
+                    <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
+                        <input 
+                            className="form-control me-2" 
+                            type="search" 
+                            placeholder="Search" 
+                            aria-label="Search"
+                            value={searchQuery}
+                            onChange={handleSearch}
+                        />
+                        <button className="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
                 <div className="exercise-cards mt-3">
                     {
                         exercises.map((singleExercise) => (
