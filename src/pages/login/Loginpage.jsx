@@ -110,7 +110,7 @@ const Loginpage = () => {
                             <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
                             <label htmlFor="rememberMe"> Remember me</label>
                         </div>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <a href="/forgot_password" className="forgot-password">Forgot Password?</a>
                     </div>
                     <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Login</button>
                 </form>

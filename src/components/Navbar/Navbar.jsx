@@ -42,7 +42,7 @@ const Navbar = () => {
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <Link to={`/profile/${user._id}`} className="dropdown-item">Profile</Link>
+                                        <Link to={`/get_single_user/${user._id}`} className="dropdown-item">Profile</Link>
                                     </li>
                                     <li>
                                         <a className="dropdown-item" href="#">Settings</a>

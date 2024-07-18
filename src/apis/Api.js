@@ -26,7 +26,7 @@ export const registerUserApi = (data) => Api.post('/api/user/register', data)
 export const loginUserApi = (data) => Api.post('/api/user/login', data)
 
 //Get User API
-export const getSingleUser = (_id) => Api.get(`/api/user/get_single_user/${_id}`, config) // Use id parameter
+export const getSingleUser = (_id) => Api.get(`/api/user/get_single_user/${_id}`, config)
 
 //Update User API
 export const updateUserApi = (data) => Api.put('/api/user/update_user', data, config)
@@ -72,5 +72,12 @@ export const paginationMeals = (page) => Api.get(`/api/meal/pagination_meal?page
 
 //Search Meal Plan
 export const searchMeal = (search) => Api.get(`/api/meal/search_meal?search=${search}`, config)
+
+//Forgot Password API
+export const forgotPasswordApi = (data) => Api.post('/api/user/forgot_password', data)
+
+//OTP API
+export const verifyOtpApi = (data) => Api.post('/api/user/verify_otp', data)
+
 
 //http://localhost:5000/test
