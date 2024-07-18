@@ -6,37 +6,40 @@ import { getSingleUser, updateUserApi } from '../../apis/Api';
 const UpdateProfile = () => {
     const { _id } = useParams();
 
+    const [fname, setFirstName] = useState('');
+    const [lname, setLastName] = useState('');
+    const [age, setAge] = useState('');
+    const [gender, setGender] = useState('Male'); // Setting 'Male' as default
+    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState('');
+    const [genderError, setGenderError] = useState('');
+
     useEffect(() => {
         getSingleUser(_id)
             .then((res) => {
-                const { fname, lname, age, gender, height } = res.data.data;
+                const { fname, lname, age, gender, height, weight } = res.data.data;
                 setFirstName(fname);
                 setLastName(lname);
                 setAge(age);
-                setGender(gender);
+                setGender(gender); // Set gender from fetched data
                 setHeight(height);
+                setWeight(weight);
             })
             .catch((error) => {
                 console.error('Error fetching user:', error);
             });
-
     }, [_id]);
-
-    const [fname, setFirstName] = useState('');
-    const [lname, setLastName] = useState('');
-    const [age, setAge] = useState('');
-    const [gender, setGender] = useState('');
-    const [height, setHeight] = useState('');
 
     const handleUpdateProfile = (e) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append('firstName', fname);
-        formData.append('lastName', lname);
+        formData.append('fname', fname);
+        formData.append('lname', lname);
         formData.append('age', age);
         formData.append('gender', gender);
         formData.append('height', height);
+        formData.append('weight', weight);
 
         updateUserApi(_id, formData)
             .then((res) => {
@@ -51,11 +54,15 @@ const UpdateProfile = () => {
             });
     };
 
+    const handleGender = (e) => {
+        setGender(e.target.value);
+    };
+
     return (
         <div className="container mt-3">
             <h2>Update Profile</h2>
             <div className="profile-update">
-                <form>
+                <form onSubmit={handleUpdateProfile}>
                     <div className="form-group">
                         <label>First Name</label>
                         <input
@@ -93,13 +100,13 @@ const UpdateProfile = () => {
                         <label>Gender</label>
                         <select
                             value={gender}
-                            onChange={(e) => setGender(e.target.value)}
+                            onChange={handleGender}
                             className="form-control"
                         >
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
+                        {genderError && <p className="text-danger">{genderError}</p>}
                     </div>
 
                     <div className="form-group">
@@ -113,7 +120,18 @@ const UpdateProfile = () => {
                         />
                     </div>
 
-                    <button onClick={handleUpdateProfile} className="btn orange-btn w-100 mt-2">
+                    <div className="form-group">
+                        <label>Weight (kg)</label>
+                        <input
+                            value={weight}
+                            onChange={(e) => setWeight(e.target.value)}
+                            className="form-control"
+                            type="number"
+                            placeholder="Enter weight in kg"
+                        />
+                    </div>
+
+                    <button type="submit" className="btn orange-btn w-100 mt-2">
                         Update Profile
                     </button>
                 </form>

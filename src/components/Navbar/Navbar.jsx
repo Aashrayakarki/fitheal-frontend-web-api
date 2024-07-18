@@ -54,8 +54,8 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <>
-                                <Link to={'/register'} className="btn btn-primary">Register</Link>
-                                <Link to={'/login'} className="btn btn-success ms-2" type="Submit">Login</Link>
+                                <Link to={'/register'} className="btn orange-btn">Register</Link>
+                                <Link to={'/login'} className="btn btn-dark ms-1" type="Submit">Login</Link>
                             </>
                         )}
                     </div>

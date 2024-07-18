@@ -29,7 +29,7 @@ export const loginUserApi = (data) => Api.post('/api/user/login', data)
 export const getSingleUser = (_id) => Api.get(`/api/user/get_single_user/${_id}`, config)
 
 //Update User API
-export const updateUserApi = (data) => Api.put('/api/user/update_user', data, config)
+export const updateUserApi = (_id, data) => Api.put(`/api/user/update_profile/${_id}`, data, config)
 
 //Create Exercise API
 export const createExerciseApi = (data) => Api.post('/api/exercise/create', data)

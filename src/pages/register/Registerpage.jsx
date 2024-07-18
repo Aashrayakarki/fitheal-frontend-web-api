@@ -183,95 +183,98 @@ const Registerpage = () => {
     };
 
     return (
-            <div className='register-container mt-2'>
-                <div className="register-form-container">
-                    <h2>Create an account</h2>
-                    <form className='w-50'>
-                        <div>
-                            Lets get started up so you can access your personal account.
+        <div className='register-container mt-2'>
+            <div className="register-form-container">
+                <h2>Create an account</h2>
+                <form className='w-50'>
+                    <div>
+                        Lets get started up so you can access your personal account.
+                    </div>
+                    <div className="form-group-row mt-2">
+                        <div className="form-group">
+                            <label>First name: </label>
+                            <input onChange={handlefname} type="text" className='form-control' placeholder='Enter your first name' />
+                            {fnameError && <p className="text-danger">{fnameError}</p>}
                         </div>
-                        <div className="form-group-row mt-2">
-                            <div className="form-group">
-                                <label>First name: </label>
-                                <input onChange={handlefname} type="text" className='form-control' placeholder='Enter your first name' />
-                                {fnameError && <p className="text-danger">{fnameError}</p>}
-                            </div>
-                            <div className="form-group">
-                                <label>Last name:</label>
-                                <input onChange={handlelname} type="text" className='form-control' placeholder='Enter your last name' />
-                                {lnameError && <p className="text-danger">{lnameError}</p>}
-                            </div>
+                        <div className="form-group">
+                            <label>Last name:</label>
+                            <input onChange={handlelname} type="text" className='form-control' placeholder='Enter your last name' />
+                            {lnameError && <p className="text-danger">{lnameError}</p>}
                         </div>
-                        <div className="form-group-row">
-                            <div className="form-group">
-                                <label>Email:</label>
-                                <input onChange={handleEmail} type="text" className='form-control' placeholder='Enter your email address' />
-                                {emailError && <p className="text-danger">{emailError}</p>}
-                            </div>
-                            <div className="form-group">
-                                <label>Phone Number:</label>
-                                <input onChange={handlePhone} type="text" className='form-control' placeholder='Enter your phone number' />
-                                {phoneError && <p className="text-danger">{phoneError}</p>}
-                            </div>
+                    </div>
+                    <div className="form-group-row">
+                        <div className="form-group">
+                            <label>Email:</label>
+                            <input onChange={handleEmail} type="text" className='form-control' placeholder='Enter your email address' />
+                            {emailError && <p className="text-danger">{emailError}</p>}
                         </div>
+                        <div className="form-group">
+                            <label>Phone Number:</label>
+                            <input onChange={handlePhone} type="text" className='form-control' placeholder='Enter your phone number' />
+                            {phoneError && <p className="text-danger">{phoneError}</p>}
+                        </div>
+                    </div>
 
-                        <div className="form-group-row">
-                            <div className="form-group">
-                                <label>Height:</label>
-                                <input onChange={handleHeight} type="text" className='form-control' placeholder='(in cm)' />
-                                {heightError && <p className="text-danger">{heightError}</p>}
-                            </div>
-                            <div className="form-group">
-                                <label>Weight:</label>
-                                <input onChange={handleWeight} type="text" className='form-control' placeholder='(in kg)' />
-                                {weightError && <p className="text-danger">{weightError}</p>}
-                            </div>
+                    <div className="form-group-row">
+                        <div className="form-group">
+                            <label>Height:</label>
+                            <input onChange={handleHeight} type="text" className='form-control' placeholder='(in cm)' />
+                            {heightError && <p className="text-danger">{heightError}</p>}
+                        </div>
+                        <div className="form-group">
+                            <label>Weight:</label>
+                            <input onChange={handleWeight} type="text" className='form-control' placeholder='(in kg)' />
+                            {weightError && <p className="text-danger">{weightError}</p>}
+                        </div>
                         <div className="form-group">
                             <label>Age:</label>
                             <input onChange={handleAge} type="text" className='form-control' placeholder='Enter your age' />
                             {ageError && <p className="text-danger">{ageError}</p>}
                         </div>
                         <div className="form-group">
-                            <label>Gender:</label>
-                            <select onChange={handleGender} className='form-control'>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <label>Gender</label>
+                            <select
+                                value={gender}
+                                onChange={handleGender}
+                                className="form-control"
+                            >
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                             {genderError && <p className="text-danger">{genderError}</p>}
                         </div>
                     </div>
-            
-                        <div className="password-container">
-                            <label>Password :</label>
-                            <input
-                                type={passwordVisible ? 'text' : 'password'}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="form-control"
-                                placeholder="Enter your password"
-                            />
-                            {passwordVisible ? (
-                                <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
-                            ) : (
-                                <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
-                            )}
-                        </div>
-                        {passwordError && <p className="text-danger">{passwordError}</p>}
-                        <div className="confirm-password-container">
-                            <label className="mt-2">Confirm password :</label>
-                            <input
-                                type={passwordVisible ? 'text' : 'password'}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="form-control"
-                                placeholder="Enter your password again"
-                            />
-                            {passwordVisible ? (
-                                <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
-                            ) : (
-                                <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
-                            )}
-                        </div>
-                        {confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>}
-                        <div className="form-options">
+                    <div className="password-container">
+                        <label>Password :</label>
+                        <input
+                            type={passwordVisible ? 'text' : 'password'}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="form-control"
+                            placeholder="Enter your password"
+                        />
+                        {passwordVisible ? (
+                            <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
+                        ) : (
+                            <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
+                        )}
+                    </div>
+                    {passwordError && <p className="text-danger">{passwordError}</p>}
+                    <div className="confirm-password-container">
+                        <label className="mt-2">Confirm password :</label>
+                        <input
+                            type={passwordVisible ? 'text' : 'password'}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            className="form-control"
+                            placeholder="Enter your password again"
+                        />
+                        {passwordVisible ? (
+                            <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
+                        ) : (
+                            <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
+                        )}
+                    </div>
+                    {confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>}
+                    <div className="form-options">
                         <div className="remember-me">
                             <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
                             <label htmlFor="rememberMe"> Remember me</label>
@@ -279,28 +282,28 @@ const Registerpage = () => {
                         <a href="#" className="forgot-password">Forgot Password?</a>
                     </div>
                     <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Create Account</button>
-                    </form>
-                
-                    <div className="login-link">
-                        Already have an account? <a href="/Login">Login</a>
-                    </div>
+                </form>
 
-                    
+                <div className="login-link">
+                    Already have an account? <a href="/Login">Login</a>
                 </div>
-                <div className='register-slider-container'>
-                    <Slider {...settings}>
-                        <div>
-                            <img src="assets/images/slider2.png" alt="Slide 1" />
-                        </div>
-                        <div>
-                            <img src="assets/images/slider1.png" alt="Slide 2" />
-                        </div>
-                        <div>
-                            <img src="assets/images/gym2.jpg" alt="Slide 3" />
-                        </div>
-                    </Slider>
-                </div>
+
+
             </div>
+            <div className='register-slider-container'>
+                <Slider {...settings}>
+                    <div>
+                        <img src="assets/images/slider2.png" alt="Slide 1" />
+                    </div>
+                    <div>
+                        <img src="assets/images/slider1.png" alt="Slide 2" />
+                    </div>
+                    <div>
+                        <img src="assets/images/gym2.jpg" alt="Slide 3" />
+                    </div>
+                </Slider>
+            </div>
+        </div>
     )
 }
 

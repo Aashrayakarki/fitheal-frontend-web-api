@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useParams, Link } from 'react-router-dom';
 import { getSingleUser } from '../../apis/Api';
 
 const ProfilePage = () => {
@@ -16,7 +15,7 @@ const ProfilePage = () => {
     useEffect(() => {
         getSingleUser(_id)
             .then((res) => {
-                const { fname, lname, age, gender, height, weight} = res.data.data;
+                const { fname, lname, age, gender, height, weight } = res.data.data;
                 setFirstName(fname);
                 setLastName(lname);
                 setAge(age);
@@ -84,7 +83,7 @@ const ProfilePage = () => {
                 </div>
 
                 <div className="form-group">
-                    <label>Weight (cm)</label>
+                    <label>Weight (kg)</label>
                     <input
                         value={weight}
                         className="form-control"
@@ -92,6 +91,8 @@ const ProfilePage = () => {
                         readOnly
                     />
                 </div>
+                
+                <Link to={`/update_profile/${_id}`} className="btn btn-primary mt-3">Update Profile</Link>
             </div>
         </div>
     );

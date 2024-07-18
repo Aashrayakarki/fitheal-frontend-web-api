@@ -16,6 +16,7 @@ import UpdateMeal from './pages/admin/update_meal/UpdateMeal';
 import ProfilePage from './pages/Profile/Profilepage';
 import AdminRoutes from './protected_routes/AdminRoutes';
 import ForgotPassword from './pages/forgot_password/ForgotPassword';
+import UpdateProfile from './pages/Profile/UpdateProfile';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path= '/contact-us' element={<ContactUs/>}/>
         <Route path= '/get_single_user/:_id' element={<ProfilePage/>}/>
         <Route path='/forgot_password' element={<ForgotPassword/>} />
+        <Route path='/update_profile/:_id' element={<UpdateProfile/>} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes/>}>
