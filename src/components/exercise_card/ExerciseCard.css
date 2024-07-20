@@ -15,3 +15,20 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.custom-card .badge {
+    padding: 5px 10px;
+    color: white;
+}
+
+/* Style for the modal backdrop */
+.modal.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    max-width: 80%;
+    margin: 1.75rem auto;
+}
+
