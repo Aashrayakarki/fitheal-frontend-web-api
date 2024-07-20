@@ -1,3 +1,75 @@
-.container {
-    margin-bottom: 50px; /* Adjust the value as needed */
+/* UpdateExercise.css */
+
+/* Container for the form */
+.update-exercise-container {
+    max-width: 800px;
+    margin-left: 150px;
+    margin-bottom: 50px;
+}
+
+/* Adjust the width of the input fields and select boxes */
+.update-exercise-container .form-control {
+    width: 400px; /* Adjust the width to be shorter but still functional */
+    display: inline-block;
+}
+
+/* Style the form labels */
+.update-exercise-container form label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Ensure the button takes the full width */
+.update-exercise-container .btn.orange-btn {
+    width: 350px; /* Match the width of the input fields */
+}
+
+/* Style for the image section */
+.update-exercise-container .image-section {
+    margin-left: 20px;
+}
+
+/* Style for the previews */
+.update-exercise-container .image-section img,
+.update-exercise-container .image-section video {
+    height: 170px;
+    width: 300px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Ensure form and image section are displayed side by side */
+.update-exercise-container .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.update-exercise-container form {
+    flex: 1;
+}
+
+.update-exercise-container .image-section {
+    flex: 1;
+    min-width: 320px; /* Ensures there is enough space for the previews */
+}
+
+/* Style for thumbnail and video previews */
+.preview-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Add some space between preview containers */
+}
+
+.preview-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; /* Add space between each preview */
+}
+
+.preview-container div:last-child {
+    margin-right: 0; /* Remove the margin from the last child to avoid extra space */
 }

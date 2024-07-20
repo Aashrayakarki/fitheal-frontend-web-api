@@ -101,3 +101,13 @@
 .btn-edit:hover, .btn-delete:hover {
     background-color: orange;
 }
+
+.modal-body-scrollable {
+    max-height: 60vh; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}

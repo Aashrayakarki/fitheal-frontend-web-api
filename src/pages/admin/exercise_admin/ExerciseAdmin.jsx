@@ -24,6 +24,9 @@ const ExerciseAdmin = () => {
         }
     }, [searchQuery]);
 
+    const [exerciseThumbnail, setExerciseThumbnail] = useState('');
+    const [previewThumbnail, setPreviewThumbnail] = useState('');
+
     const [exerciseVideo, setExerciseVideo] = useState('');
     const [previewVideo, setPreviewVideo] = useState('');
 
@@ -31,6 +34,12 @@ const ExerciseAdmin = () => {
     const [exerciseCalories, setExerciseCalories] = useState('');
     const [exerciseTime, setExerciseTime] = useState('');
     const [exerciseLevel, setExerciseLevel] = useState('');
+
+    const handleThumbnail = (e) => {
+        const file = e.target.files[0];
+        setExerciseThumbnail(file);
+        setPreviewThumbnail(URL.createObjectURL(file));
+    };
 
     const handleVideo = (e) => {
         const file = e.target.files[0];
@@ -46,9 +55,10 @@ const ExerciseAdmin = () => {
         formData.append('exerciseCalories', exerciseCalories);
         formData.append('exerciseTime', exerciseTime);
         formData.append('exerciseLevel', exerciseLevel);
+        formData.append('exerciseThumbnail', exerciseThumbnail);
         formData.append('exerciseVideo', exerciseVideo);
 
-        console.log(formData.get('exerciseVideo'));
+        console.log(formData.get('exerciseThumbnail'));
 
         createExerciseApi(formData).then((res) => {
             if (res.status === 201) {
@@ -97,12 +107,12 @@ const ExerciseAdmin = () => {
     return (
         <>
             <div className='container mt-3'>
-            <div>
+                <div>
                     <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
-                        <input 
-                            className="form-control me-2" 
-                            type="search" 
-                            placeholder="Search" 
+                        <input
+                            className="form-control me-2"
+                            type="search"
+                            placeholder="Search"
                             aria-label="Search"
                             value={searchQuery}
                             onChange={handleSearch}
@@ -114,7 +124,7 @@ const ExerciseAdmin = () => {
                     {
                         exercises.map((singleExercise) => (
                             <div className="exercise-card" key={singleExercise._id}>
-                                <img src={`http://localhost:5000/products/${singleExercise.exerciseVideo}`} alt='' className="exercise-card-img" />
+                                <img src={`http://localhost:5000/products/${singleExercise.exerciseThumbnail}`} alt='' className="exercise-card-img" />
                                 <div className="exercise-card-body">
                                     <h5 className="exercise-card-title">{singleExercise.exerciseName}</h5>
                                     <p className="exercise-card-text">Time: {singleExercise.exerciseTime} min</p>
@@ -134,7 +144,6 @@ const ExerciseAdmin = () => {
                     +
                 </button>
 
-
                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -142,7 +151,7 @@ const ExerciseAdmin = () => {
                                 <h1 className="modal-title fs-5" id="exampleModalLabel">Create a new exercise</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div className="modal-body">
+                            <div className="modal-body modal-body-scrollable">
                                 <form action=''>
                                     <label>Exercise Name</label>
                                     <input onChange={(e) => setExerciseName(e.target.value)} type="text" className='form-control' placeholder='Enter exercise name'></input>
@@ -157,10 +166,16 @@ const ExerciseAdmin = () => {
                                         <option value="Advanced">Advanced</option>
                                         <option value="Elite">Elite</option>
                                     </select>
-                                    <label className='mt-2'>Choose exercise video</label>
+                                    <label className='mt-2'>Choose exercise Thumbnail</label>
+                                    <input onChange={handleThumbnail} type='file' className='form-control' />
+                                    {
+                                        previewThumbnail && <img src={previewThumbnail} className='img-fluid rounded mt-2' alt='Preview'></img>
+                                    }
+
+                                    <label className='mt-2'>Choose exercise Video</label>
                                     <input onChange={handleVideo} type='file' className='form-control' />
                                     {
-                                        previewVideo && <img src={previewVideo} className='img-fluid rounded mt-2' alt='Preview'></img>
+                                        previewVideo && <video src={previewVideo} className='img-fluid rounded mt-2' controls></video>
                                     }
                                 </form>
                             </div>

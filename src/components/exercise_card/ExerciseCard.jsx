@@ -6,7 +6,7 @@ const ExerciseCard = ({ exerciseInformation, color }) => {
         <div className="card custom-card" style={{ width: '18rem' }}>
             <span style={{ backgroundColor: color }} className='badge position-absolute top-0'>{exerciseInformation.exerciseLevel}</span>
             <img 
-                src={`http://localhost:5000/products/${exerciseInformation.exerciseVideo}`} 
+                src={`http://localhost:5000/products/${exerciseInformation.exerciseThumbnail}`} 
                 className="card-img-top custom-card-img" 
                 alt={exerciseInformation.exerciseName}
             />
