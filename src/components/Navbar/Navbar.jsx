@@ -61,7 +61,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <div style={{ paddingTop: '100px' }}></div> {/* Add padding to avoid content overlap */}
+            <div style={{ paddingTop: '100px' }}></div>
         </>
     );
 };

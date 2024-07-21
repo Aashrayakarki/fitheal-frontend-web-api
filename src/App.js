@@ -17,6 +17,8 @@ import ProfilePage from './pages/Profile/Profilepage';
 import AdminRoutes from './protected_routes/AdminRoutes';
 import ForgotPassword from './pages/forgot_password/ForgotPassword';
 import UpdateProfile from './pages/Profile/UpdateProfile';
+import ExerciseUser from './pages/user/exercise_user/ExerciseUser';
+import UserRoutes from './protected_routes/UserRoutes';
 
 function App() {
   return (
@@ -40,6 +42,11 @@ function App() {
         {/* Meal Plan Admin routes */}
         <Route path='/admin/meal' element={<MealplanAdmin/>} />
         <Route path='/admin/update_meal/:id' element={<UpdateMeal/>} />
+        </Route>
+
+        {/* User routes */}
+        <Route element={<UserRoutes/>}>
+          <Route path='user/exercise' element={<ExerciseUser/>}/>
         </Route>
 
       </Routes>
