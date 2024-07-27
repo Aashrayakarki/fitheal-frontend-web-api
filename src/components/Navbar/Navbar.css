@@ -1,0 +1,53 @@
+/* Custom Navbar CSS */
+.custom-navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+}
+
+.top-logo {
+    height: 50px;
+}
+
+.custom-nav-link {
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.custom-nav-link:hover {
+    color: #ff7f50;
+}
+
+.custom-btn {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #ff5722;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #ff7f50;
+    color: #fff;
+}
