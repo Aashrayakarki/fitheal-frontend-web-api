@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100" style={{ zIndex: 1000 }}>
+            <nav className="navbar navbar-expand-lg custom-navbar position-fixed w-100">
                 <div className="container-fluid d-flex align-items-center justify-content-between">
                     <img src="/assets/images/fitheal.png" alt="Logo" className="top-logo" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,23 +21,23 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item me-5">
-                                <a className="nav-link" href='/'>Home</a>
+                                <a className="nav-link custom-nav-link" href='/'>Home</a>
                             </li>
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="/admin/exercise">Exercises</a>
+                                <a className="nav-link custom-nav-link" href="/admin/exercise">Exercises</a>
                             </li>
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="/admin/meal">Meal Plans</a>
+                                <a className="nav-link custom-nav-link" href="/admin/meal">Meal Plans</a>
                             </li>
                             <li className="nav-item me-5">
-                                <a className="nav-link" href="/contact-us">Contact Us</a>
+                                <a className="nav-link custom-nav-link" href="/contact-us">Contact Us</a>
                             </li>
                         </ul>
                     </div>
                     <div className="d-flex align-items-center">
                         {user ? (
                             <div className="dropdown">
-                                <button className="btn orange-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn custom-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     {`Welcome, ${user.fname}`}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -54,7 +54,7 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <>
-                                <Link to={'/register'} className="btn orange-btn">Register</Link>
+                                <Link to={'/register'} className="btn custom-btn">Register</Link>
                                 <Link to={'/login'} className="btn btn-dark ms-1" type="Submit">Login</Link>
                             </>
                         )}
