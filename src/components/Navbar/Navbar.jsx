@@ -46,7 +46,7 @@ const Navbar = () => {
                                         <Link to={`/get_single_user/${user._id}`} className="dropdown-item">Profile</Link>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">Settings</a>
+                                        <a className="dropdown-item" href="/forgot_password">Settings</a>
                                     </li>
                                     <li>
                                         <button onClick={handleLogout} className="dropdown-item">Log Out</button>
@@ -56,7 +56,7 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <Link to={'/register'} className="btn custom-btn">Register</Link>
-                                <Link to={'/login'} className="btn btn-dark ms-1" type="Submit">Login</Link>
+                                <Link to={'/login'} className="btn login-btn ms-1">Login</Link>
                             </>
                         )}
                     </div>

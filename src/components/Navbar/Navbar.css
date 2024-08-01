@@ -33,8 +33,24 @@
 }
 
 .custom-btn:hover {
-    background-color: #ff5722;
+    background-color: #ff7f50;
 }
+
+.login-btn {
+    background-color: black;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: black;
+}
+
 
 .dropdown-menu {
     border-radius: 10px;
