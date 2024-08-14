@@ -62,7 +62,7 @@ const ForgotPassword = () => {
           <button
             disabled={isSent}
             onClick={handleSendOtp}
-            className="btn orange-btn mt-2 w-100"
+            className="btn btn-dark mt-2 w-100"
           >
             Send OTP
           </button>
