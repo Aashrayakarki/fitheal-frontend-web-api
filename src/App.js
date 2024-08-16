@@ -1,12 +1,10 @@
 import './App.css';
-
-import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from './pages/homepage/Homepage';
 import Registerpage from './pages/register/Registerpage';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import Loginpage from './pages/login/Loginpage';
-import Navbar from './components/Navbar/Navbar';
 import Footer from './pages/footer/Footer';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateExercise from './pages/admin/update_exercise/UpdateExercise';
@@ -19,39 +17,50 @@ import ForgotPassword from './pages/forgot_password/ForgotPassword';
 import UpdateProfile from './pages/Profile/UpdateProfile';
 import ExerciseUser from './pages/user/exercise_user/ExerciseUser';
 import UserRoutes from './protected_routes/UserRoutes';
+import Navbar from './components/Navbar/Navbar';
+import UserNavbar from './components/user_navbar/UserNavbar';
 
 function App() {
+  // Get user data from localStorage
+  const user = JSON.parse(localStorage.getItem('userData'));
+
+  // Define which navbar should be displayed based on user's admin status
+  const isAdmin = user && user.isAdmin;
+
   return (
     <Router>
-      <Navbar/>
-      <ToastContainer/>
+      <ToastContainer />
+      
+      {/* Render the appropriate navbar based on the user's admin status */}
+      {isAdmin ? <Navbar /> : <UserNavbar />}
+      
       <Routes>
-        <Route path= '/' element={<Homepage/>}/>
-        <Route path= '/register' element={<Registerpage/>}/>
-        <Route path= '/login' element={<Loginpage/>}/>
-        <Route path= '/contact-us' element={<ContactUs/>}/>
-        <Route path= '/get_single_user/:_id' element={<ProfilePage/>}/>
-        <Route path='/forgot_password' element={<ForgotPassword/>} />
-        <Route path='/update_profile/:_id' element={<UpdateProfile/>} />
+        <Route path='/' element={<Homepage />} />
+        <Route path='/register' element={<Registerpage />} />
+        <Route path='/login' element={<Loginpage />} />
+        <Route path='/contact-us' element={<ContactUs />} />
+        <Route path='/get_single_user/:_id' element={<ProfilePage />} />
+        <Route path='/forgot_password' element={<ForgotPassword />} />
+        <Route path='/update_profile/:_id' element={<UpdateProfile />} />
 
         {/* Exercise Admin routes */}
-        <Route element={<AdminRoutes/>}>
-        <Route path='/admin/exercise' element={<ExerciseAdmin/>} />
-        <Route path='/admin/update_exercise/:id' element={<UpdateExercise/>} />
+        <Route element={<AdminRoutes />}>
+          <Route path='/admin/exercise' element={<ExerciseAdmin />} />
+          <Route path='/admin/update_exercise/:id' element={<UpdateExercise />} />
 
-        {/* Meal Plan Admin routes */}
-        <Route path='/admin/meal' element={<MealplanAdmin/>} />
-        <Route path='/admin/update_meal/:id' element={<UpdateMeal/>} />
+          {/* Meal Plan Admin routes */}
+          <Route path='/admin/meal' element={<MealplanAdmin />} />
+          <Route path='/admin/update_meal/:id' element={<UpdateMeal />} />
         </Route>
 
         {/* User routes */}
-        <Route element={<UserRoutes/>}>
-          <Route path='user/exercise' element={<ExerciseUser/>}/>
+        <Route element={<UserRoutes />}>
+          <Route path='user/exercise' element={<ExerciseUser />} />
         </Route>
-
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
+
 export default App;
