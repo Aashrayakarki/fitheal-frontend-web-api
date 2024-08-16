@@ -29,6 +29,7 @@ const MealplanAdmin = () => {
     const [previewImage, setPreviewImage] = useState('');
 
     const [mealName, setMealName] = useState('');
+    const [mealDescription, setMealDescription] = useState('');
     const [mealCalories, setMealCalories] = useState('');
     const [mealProteins, setMealProteins] = useState('');
     const [mealCarbs, setMealCarbs] = useState('');
@@ -45,6 +46,7 @@ const MealplanAdmin = () => {
 
         const formData = new FormData();
         formData.append('mealName', mealName);
+        formData.append('mealDescription', mealDescription);
         formData.append('mealCalories', mealCalories);
         formData.append('mealProteins', mealProteins);
         formData.append('mealCarbs', mealCarbs);
@@ -148,6 +150,8 @@ const MealplanAdmin = () => {
                                 <form action=''>
                                     <label>Meal Name</label>
                                     <input onChange={(e) => setMealName(e.target.value)} type="text" className='form-control' placeholder='Enter meal name'></input>
+                                    <label className='mt-2'>Meal Description</label>
+                                    <input onChange={(e) => setMealDescription(e.target.value)} type="text" className='form-control' placeholder='Enter meal description'></input>
                                     <label className='mt-2'>Meal Time</label>
                                     <input onChange={(e) => setMealTime(e.target.value)} type="number" className='form-control' placeholder='Enter meal time'></input>
                                     <label className='mt-2'>Meal Calories</label>

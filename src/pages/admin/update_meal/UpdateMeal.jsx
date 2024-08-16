@@ -11,6 +11,7 @@ const UpdateMeal = () => {
             console.log(res.data)
 
             setMealName(res.data.data.mealName)
+            setMealDescription(res.data.data.mealDescription)
             setMealTime(res.data.data.mealTime)
             setMealCalories(res.data.data.mealCalories)
             setMealProteins(res.data.data.mealProteins)
@@ -24,6 +25,7 @@ const UpdateMeal = () => {
     }, [])
 
     const [mealName, setMealName] = useState('')
+    const [mealDescription, setMealDescription] = useState('')
     const [mealTime, setMealTime] = useState('')
     const [mealCalories, setMealCalories] = useState('')
     const [mealProteins, setMealProteins] = useState('')
@@ -44,6 +46,7 @@ const UpdateMeal = () => {
 
         const formData = new FormData()
         formData.append('mealName', mealName)
+        formData.append('mealDescription', mealDescription)
         formData.append('mealTime', mealTime)
         formData.append('mealCalories', mealCalories)
         formData.append('mealProteins', mealProteins)
@@ -78,6 +81,9 @@ const UpdateMeal = () => {
                     <form action="">
                         <label htmlFor="">Meal Name</label>
                         <input value={mealName} onChange={(e) => setMealName(e.target.value)} className='form-control' type="text" placeholder='Enter your meal name' />
+
+                        <label className='mt-2' htmlFor="">Meal Description</label>
+                        <input value={mealDescription} onChange={(e) => setMealDescription(e.target.value)} className='form-control' type="text" placeholder='Enter your meal description' />
 
                         <label className='mt-2' htmlFor="">Meal Time</label>
                         <input value={mealTime} onChange={(e) => setMealTime(e.target.value)} className='form-control' type="number" placeholder='Enter your meal time' />
