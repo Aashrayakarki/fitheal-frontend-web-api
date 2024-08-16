@@ -57,6 +57,20 @@ const MealCard = ({ mealInformation }) => {
                                     />
                                     <div className="modal-description">
                                         <p>{mealInformation.mealDescription}</p>
+                                        <div className="nutritional-info">
+                                            <div className="info-item">
+                                                <h6>Proteins:</h6>
+                                                <p>{mealInformation.mealProteins}g</p>
+                                            </div>
+                                            <div className="info-item">
+                                                <h6>Calories:</h6>
+                                                <p>{mealInformation.mealCalories}</p>
+                                            </div>
+                                            <div className="info-item">
+                                                <h6>Carbs:</h6>
+                                                <p>{mealInformation.mealCarbs}g</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

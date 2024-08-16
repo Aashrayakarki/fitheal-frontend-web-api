@@ -1,3 +1,4 @@
+/* Custom card styles */
 .custom-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -12,6 +13,7 @@
 /* Modal styles */
 .modal-content {
     border-radius: 8px;
+    padding: 20px;
 }
 
 .modal-body-content {
@@ -20,16 +22,28 @@
 }
 
 .modal-img {
-    max-width: 50%;
+    max-width: 40%;
     border-radius: 8px;
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 .modal-description {
     flex: 1;
 }
 
-/* Close button for modal header */
-.close {
+.nutritional-info {
+    margin-top: 20px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.info-item p {
     margin: 0;
 }
