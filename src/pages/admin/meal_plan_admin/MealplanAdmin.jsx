@@ -151,7 +151,7 @@ const MealplanAdmin = () => {
                                     <label>Meal Name</label>
                                     <input onChange={(e) => setMealName(e.target.value)} type="text" className='form-control' placeholder='Enter meal name'></input>
                                     <label className='mt-2'>Meal Description</label>
-                                    <input onChange={(e) => setMealDescription(e.target.value)} type="text" className='form-control' placeholder='Enter meal description'></input>
+                                    <textarea onChange={(e) => setMealDescription(e.target.value)} type="text" className='form-control' rows={3} placeholder='Enter meal description'></textarea>
                                     <label className='mt-2'>Meal Time</label>
                                     <input onChange={(e) => setMealTime(e.target.value)} type="number" className='form-control' placeholder='Enter meal time'></input>
                                     <label className='mt-2'>Meal Calories</label>

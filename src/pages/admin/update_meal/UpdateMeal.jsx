@@ -83,7 +83,7 @@ const UpdateMeal = () => {
                         <input value={mealName} onChange={(e) => setMealName(e.target.value)} className='form-control' type="text" placeholder='Enter your meal name' />
 
                         <label className='mt-2' htmlFor="">Meal Description</label>
-                        <input value={mealDescription} onChange={(e) => setMealDescription(e.target.value)} className='form-control' type="text" placeholder='Enter your meal description' />
+                        <textarea value={mealDescription} onChange={(e) => setMealDescription(e.target.value)} className='form-control' type="text" rows={3} placeholder='Enter your meal description' />
 
                         <label className='mt-2' htmlFor="">Meal Time</label>
                         <input value={mealTime} onChange={(e) => setMealTime(e.target.value)} className='form-control' type="number" placeholder='Enter your meal time' />
