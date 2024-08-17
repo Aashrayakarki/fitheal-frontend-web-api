@@ -96,13 +96,6 @@ const Loginpage = () => {
 
                     {passwordError && <p className="text-danger">{passwordError}</p>}
 
-                    <div className="form-options">
-                        <div className="remember-me">
-                            <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
-                            <label htmlFor="rememberMe"> Remember me</label>
-                        </div>
-                        <a href="/forgot_password" className="forgot-password">Forgot Password?</a>
-                    </div>
                     <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Login</button>
                 </form>
 

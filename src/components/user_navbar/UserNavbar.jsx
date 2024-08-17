@@ -39,7 +39,7 @@ const UserNavbar = () => {
                         {user ? (
                             <div className="dropdown">
                                 <button className="btn custom-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {`Welcome, ${user.fname}`}
+                                    {"Welcome back"}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>

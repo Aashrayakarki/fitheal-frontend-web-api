@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllExercises } from '../../../apis/Api';
 import { Link } from 'react-router-dom';
-import { FaBurn, FaClock, FaFilter, FaInfoCircle, FaLevelDownAlt, FaLevelUpAlt, FaTimes } from 'react-icons/fa'; 
+import { FaBurn, FaClock, FaFilter, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import './ExerciseUser.css';
 import { FaStairs } from 'react-icons/fa6';
 
@@ -9,6 +9,8 @@ const UserExercise = () => {
     const [exercises, setExercises] = useState([]);
     const [filteredExercises, setFilteredExercises] = useState([]);
     const [selectedLevel, setSelectedLevel] = useState('All');
+    const [selectedExercise, setSelectedExercise] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         getAllExercises().then((res) => {
@@ -29,8 +31,18 @@ const UserExercise = () => {
         }
     };
 
+    const handleShowModal = (exercise) => {
+        setSelectedExercise(exercise);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setSelectedExercise(null);
+    };
+
     return (
-        <div className='container mt-3'>            
+        <div className='container mt-3'>
             <div className="filter-section mb-3">
                 <label htmlFor="levelFilter" className="form-label">
                     <FaFilter /> Filter Exercises by Level:
@@ -55,15 +67,44 @@ const UserExercise = () => {
                                 <p className="exercise-card-text"><FaBurn/> Calories: {singleExercise.exerciseCalories}</p>
                                 <p className="exercise-card-text"><FaStairs/> Level: {singleExercise.exerciseLevel}</p>
                                 <div className="exercise-card-actions">
-                                    <Link to={`/exercise_details/${singleExercise._id}`} className="btn orange-btn btn-details">
+                                    <button 
+                                        className="btn orange-btn btn-details" 
+                                        onClick={() => handleShowModal(singleExercise)}
+                                    >
                                         <FaInfoCircle /> Details
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     ))
                 }
             </div>
+
+            {/* Modal */}
+            {/* Modal */}
+{showModal && selectedExercise && (
+    <div className="modal show d-block" tabIndex="-1" role="dialog" aria-labelledby="exerciseVideoModalLabel">
+        <div className="modal-dialog custom-modal-dialog" role="document">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 id="exerciseVideoModalLabel" className="modal-title">{selectedExercise.exerciseName} Video</h5>
+                </div>
+                <div className="modal-body">
+                    <video width="100%" controls>
+                        <source src={`http://localhost:5000/products/${selectedExercise.exerciseVideo}`} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+)}
+
         </div>
     );
 };

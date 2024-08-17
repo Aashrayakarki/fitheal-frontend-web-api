@@ -33,7 +33,7 @@ const ProfilePage = () => {
     return (
         <div className="profile-container mt-5">
             <div className="profile-card shadow-sm p-4">
-                <h2 className="text-center mb-4">{fname}{lname}</h2>
+                <h2 className="text-center mb-4">{fname} {lname}</h2>
                 <div className="profile-details row">
                     <div className="col-md-6 mb-3">
                         <div className="profile-info">

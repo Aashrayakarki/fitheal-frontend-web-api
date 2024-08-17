@@ -5,15 +5,25 @@ import './MealUser.css';
 
 const MealUser = () => {
     const [meals, setMeals] = useState([]);
+    const [filteredMeals, setFilteredMeals] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         getAllMeals().then((res) => {
             setMeals(res.data.data);
+            setFilteredMeals(res.data.data); // Set initial filtered meals
         }).catch((error) => {
             console.log(error);
         });
     }, []);
+
+    useEffect(() => {
+        // Filter meals whenever searchQuery changes
+        const filtered = meals.filter(meal =>
+            meal.mealName.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setFilteredMeals(filtered);
+    }, [searchQuery, meals]);
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
@@ -39,7 +49,7 @@ const MealUser = () => {
             </div>
             <div className='meal-cards mt-3'>
                 {
-                    meals.map((meal) => (
+                    filteredMeals.map((meal) => (
                         <MealUserCard key={meal._id} mealInformation={meal} />
                     ))
                 }
