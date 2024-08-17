@@ -7,25 +7,23 @@
     border: 1px solid #ccc;
 }
 
-.profile-info {
-    display: flex;
-    align-items: center;
-}
-
-.profile-info .icon {
+.icon {
     color: orange;
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 8px; 
 
 }
 
-.profile-info p {
-    margin-bottom: 0;
-    font-size: 16px;
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
 }
 
 .btn-primary {
-    background-color:orange;
+    background-color: orange;
     border-color: orange;
     padding: 10px 20px;
 }
