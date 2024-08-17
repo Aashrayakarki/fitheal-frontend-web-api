@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# FitHeal Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the frontend repository of the **FitHeal** application. FitHeal is a health and fitness platform designed to help users track their workouts, monitor their diet, and achieve their fitness goals.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This repository contains the frontend code for the FitHeal application. The frontend is responsible for the user interface and user experience, providing a seamless way for users to interact with their health and fitness data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **User Registration & Login:** Secure authentication flow using JWT.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
+- **Workout Management:** Users can create, view, update, and delete their workout routines.
+- **Diet Tracking:** Users can manage their meal plans and monitor nutritional intake.
+- **Progress Visualization:** Charts and graphs to visualize user progress over time.
+- **API Integration:** Seamless communication with the backend for data persistence.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- **React.js** - Frontend library for building user interfaces.
+- **Redux** - State management library for managing application state.
+- **Axios** - Promise-based HTTP client for making API requests.
+- **React Router** - For handling routing in the application.
+- **Material-UI** - UI component library for styling the application.
+- **Chart.js** - For visualizing data with charts and graphs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get the frontend of FitHeal up and running, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/fitheal-frontend.git
+    cd fitheal-frontend
+    ```
 
-### `npm run eject`
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Set up the environment variables:
+   - Create a `.env` file in the root directory of the project.
+   - Add the following environment variables:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```
+    REACT_APP_API_BASE_URL=http://localhost:5000/api
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    The application should now be running at `http://localhost:3000`.
 
-## Learn More
+## Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The following environment variables need to be configured:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `REACT_APP_API_BASE_URL`: The base URL of the backend API.
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Home Page:** Displays an overview of the user’s fitness stats and progress.
+- **Workout Page:** Manage workouts, view past routines, and create new workout plans.
+- **Diet Page:** Track meals, manage diet plans, and view nutritional information.
+- **Progress Page:** View detailed progress reports with charts and graphs.
 
-### Analyzing the Bundle Size
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The project structure is organized as follows:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+fitheal-frontend/
+│
+├── public/
+│   ├── index.html
+│   └── ...
+│
+├── src/
+│   ├── components/         # Reusable components
+│   ├── pages/              # Application pages
+│   ├── redux/              # Redux state management
+│   ├── services/           # API service functions
+│   ├── utils/              # Utility functions
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+│
+├── .env                    # Environment variables
+├── package.json            # Project dependencies
+└── README.md               # Project documentation
+```
