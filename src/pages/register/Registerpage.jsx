@@ -1,179 +1,160 @@
-import React, { useState } from 'react'
-import { registerUserApi } from '../../apis/Api'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { registerUserApi } from '../../apis/Api';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Registerpage.css'
-import { EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import './Registerpage.css';
+import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 import Slider from 'react-slick';
 
 const Registerpage = () => {
-    const [fname, setfname] = useState('')
-    const [lname, setlname] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [height, setHeight] = useState('')
-    const [weight, setWeight] = useState('')
-    const [age, setAge] = useState('')
-    const [gender, setGender] = useState('')
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [fname, setfname] = useState('');
+    const [lname, setlname] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState('');
+    const [age, setAge] = useState('');
+    const [gender, setGender] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
 
-    const [fnameError, setfnameError] = useState('')
-    const [lnameError, setlnameError] = useState('')
-    const [emailError, setEmailError] = useState('')
-    const [phoneError, setPhoneError] = useState('')
-    const [heightError, setHeightError] = useState('')
-    const [weightError, setWeightError] = useState('')
-    const [ageError, setAgeError] = useState('')
-    const [genderError, setGenderError] = useState('')
-    const [passwordError, setPasswordError] = useState('')
-    const [confirmPasswordError, setConfirmPasswordError] = useState('')
+    const [fnameError, setfnameError] = useState('');
+    const [lnameError, setlnameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [phoneError, setPhoneError] = useState('');
+    const [heightError, setHeightError] = useState('');
+    const [weightError, setWeightError] = useState('');
+    const [ageError, setAgeError] = useState('');
+    const [genderError, setGenderError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
     const navigate = useNavigate();
 
+    const handlefname = (e) => setfname(e.target.value);
+    const handlelname = (e) => setlname(e.target.value);
+    const handleEmail = (e) => setEmail(e.target.value);
+    const handlePhone = (e) => setPhone(e.target.value);
+    const handleHeight = (e) => setHeight(e.target.value);
+    const handleWeight = (e) => setWeight(e.target.value);
+    const handleAge = (e) => setAge(e.target.value);
+    const handleGender = (e) => setGender(e.target.value);
+    const handlePassword = (e) => setPassword(e.target.value);
+    const handleConfirmPassword = (e) => setConfirmPassword(e.target.value);
 
-    const handlefname = (e) => {
-        setfname(e.target.value);
-    }
+    const validate = () => {
+        let isValid = true;
 
-    const handlelname = (e) => {
-        setlname(e.target.value);
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handlePhone = (e) => {
-        setPhone(e.target.value);
-    }
-
-    const handleHeight = (e) => {
-        setHeight(e.target.value);
-    }
-
-    const handleWeight = (e) => {
-        setWeight(e.target.value);
-    }
-
-    const handleAge = (e) => {
-        setAge(e.target.value);
-    }
-
-    const handleGender = (e) => {
-        setGender(e.target.value);
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value);
-    }
-
-    var validate = () => {
-        var isValid = true;
-
-        //validate the first name
-        if (fname.trim() == '') {
-            setfnameError("First name is required")
+        if (fname.trim() === '') {
+            setfnameError("First name is required");
             isValid = false;
+        } else {
+            setfnameError('');
         }
 
-        if (lname.trim() == '') {
-            setlnameError("Last name is required")
+        if (lname.trim() === '') {
+            setlnameError("Last name is required");
             isValid = false;
+        } else {
+            setlnameError('');
         }
 
-        if (email.trim() === '' || email.includes('@') === false || email.includes('.') === false) {
+        if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
             setEmailError('Email is invalid or empty');
             isValid = false;
+        } else {
+            setEmailError('');
         }
 
-        if (phone.trim() == '') {
-            setPhoneError("Phone Number is required")
+        if (phone.trim() === '') {
+            setPhoneError("Phone Number is required");
             isValid = false;
+        } else {
+            setPhoneError('');
         }
 
-        if (height.trim() == '') {
-            setHeightError("Height is required")
+        if (height.trim() === '') {
+            setHeightError("Height is required");
             isValid = false;
+        } else {
+            setHeightError('');
         }
 
-        if (weight.trim() == '') {
-            setWeightError("Weight is required")
+        if (weight.trim() === '') {
+            setWeightError("Weight is required");
             isValid = false;
+        } else {
+            setWeightError('');
         }
 
-        if (age.trim() == '') {
-            setAgeError("Age is required")
+        if (age.trim() === '') {
+            setAgeError("Age is required");
             isValid = false;
+        } else {
+            setAgeError('');
         }
 
-        if (gender.trim() == '') {
-            setGenderError("Gender is required")
+        if (gender.trim() === '') {
+            setGenderError("Gender is required");
             isValid = false;
+        } else {
+            setGenderError('');
         }
 
-        if (password.trim() == '') {
-            setPasswordError("Password is required")
+        if (password.trim() === '') {
+            setPasswordError("Password is required");
             isValid = false;
+        } else {
+            setPasswordError('');
         }
 
-        if (confirmPassword.trim() == '') {
-            setConfirmPasswordError("Confirm Password is required")
+        if (confirmPassword.trim() === '') {
+            setConfirmPasswordError("Confirm Password is required");
             isValid = false;
-        }
-
-        if (confirmPassword.trim() !== password.trim()) {
-            setConfirmPasswordError("Password and Confirm Password doesn't match!!")
+        } else if (confirmPassword.trim() !== password.trim()) {
+            setConfirmPasswordError("Password and Confirm Password don't match!");
             isValid = false;
+        } else {
+            setConfirmPasswordError('');
         }
 
         return isValid;
-
-    }
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        var isValidated = validate();
-        if (!isValidated) {
-            return
-        }
+        e.preventDefault();
+        if (!validate()) return;
 
         const data = {
-            fname: fname,
-            lname: lname,
-            email: email,
-            phone: phone,
-            height: height,
-            weight: weight,
-            age: age,
-            gender: gender,
-            password: password,
-            confirmPassword: confirmPassword
-        }
+            fname,
+            lname,
+            email,
+            phone,
+            height,
+            weight,
+            age,
+            gender,
+            password,
+            confirmPassword
+        };
 
-        registerUserApi(data).then((res) => {
-            if (res.data.success == true) {
-                toast.success(res.data.message);
-                navigate('/login');
-            } else {
-                toast.error(res.data.message)
-            }
-        }).catch((err) => {
-            console.log(err)
-            toast.error('Internal Server Error!')
-        })
-    }
+        registerUserApi(data)
+            .then((res) => {
+                if (res.data.success) {
+                    toast.success(res.data.message);
+                    navigate('/login');
+                } else {
+                    toast.error(res.data.message);
+                }
+            })
+            .catch(() => {
+                toast.error('Internal Server Error!');
+            });
+    };
 
-    // Slider settings
     const settings = {
         dots: true,
         infinite: true,
@@ -192,25 +173,45 @@ const Registerpage = () => {
                     </div>
                     <div className="form-group-row mt-2">
                         <div className="form-group">
-                            <label>First name: </label>
-                            <input onChange={handlefname} type="text" className='form-control' placeholder='Enter your first name' />
+                            <label>First name:</label>
+                            <input
+                                onChange={handlefname}
+                                type="text"
+                                className='form-control'
+                                placeholder='Enter your first name'
+                            />
                             {fnameError && <p className="text-danger">{fnameError}</p>}
                         </div>
                         <div className="form-group">
                             <label>Last name:</label>
-                            <input onChange={handlelname} type="text" className='form-control' placeholder='Enter your last name' />
+                            <input
+                                onChange={handlelname}
+                                type="text"
+                                className='form-control'
+                                placeholder='Enter your last name'
+                            />
                             {lnameError && <p className="text-danger">{lnameError}</p>}
                         </div>
                     </div>
                     <div className="form-group-row">
                         <div className="form-group">
                             <label>Email:</label>
-                            <input onChange={handleEmail} type="text" className='form-control' placeholder='Enter your email address' />
+                            <input
+                                onChange={handleEmail}
+                                type="text"
+                                className='form-control'
+                                placeholder='Enter your email address'
+                            />
                             {emailError && <p className="text-danger">{emailError}</p>}
                         </div>
                         <div className="form-group">
                             <label>Phone Number:</label>
-                            <input onChange={handlePhone} type="text" className='form-control' placeholder='Enter your phone number' />
+                            <input
+                                onChange={handlePhone}
+                                type="text"
+                                className='form-control'
+                                placeholder='Enter your phone number'
+                            />
                             {phoneError && <p className="text-danger">{phoneError}</p>}
                         </div>
                     </div>
@@ -218,17 +219,32 @@ const Registerpage = () => {
                     <div className="form-group-row">
                         <div className="form-group">
                             <label>Height:</label>
-                            <input onChange={handleHeight} type="text" className='form-control' placeholder='(in cm)' />
+                            <input
+                                onChange={handleHeight}
+                                type="text"
+                                className='form-control'
+                                placeholder='(in cm)'
+                            />
                             {heightError && <p className="text-danger">{heightError}</p>}
                         </div>
                         <div className="form-group">
                             <label>Weight:</label>
-                            <input onChange={handleWeight} type="text" className='form-control' placeholder='(in kg)' />
+                            <input
+                                onChange={handleWeight}
+                                type="text"
+                                className='form-control'
+                                placeholder='(in kg)'
+                            />
                             {weightError && <p className="text-danger">{weightError}</p>}
                         </div>
                         <div className="form-group">
                             <label>Age:</label>
-                            <input onChange={handleAge} type="text" className='form-control' placeholder='Enter your age' />
+                            <input
+                                onChange={handleAge}
+                                type="text"
+                                className='form-control'
+                                placeholder='Enter your age'
+                            />
                             {ageError && <p className="text-danger">{ageError}</p>}
                         </div>
                         <div className="form-group">
@@ -244,42 +260,37 @@ const Registerpage = () => {
                             {genderError && <p className="text-danger">{genderError}</p>}
                         </div>
                     </div>
-                    <div className="password-container">
-                        <label>Password :</label>
-                        <input
-                            type={passwordVisible ? 'text' : 'password'}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="form-control"
-                            placeholder="Enter your password"
-                        />
-                        {passwordVisible ? (
-                            <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
-                        ) : (
-                            <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
-                        )}
-                    </div>
-                    {passwordError && <p className="text-danger">{passwordError}</p>}
-                    <div className="confirm-password-container">
-                        <label className="mt-2">Confirm password :</label>
-                        <input
-                            type={passwordVisible ? 'text' : 'password'}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="form-control"
-                            placeholder="Enter your password again"
-                        />
-                        {passwordVisible ? (
-                            <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
-                        ) : (
-                            <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
-                        )}
-                    </div>
-                    {confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>}
-                    <div className="form-options">
-                        <div className="remember-me">
-                            <input type="checkbox" id="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
-                            <label htmlFor="rememberMe"> Remember me</label>
+                    <div className="form-group-row">
+                        <div className="password-container form-group">
+                            <label>Password:</label>
+                            <input
+                                type={passwordVisible ? 'text' : 'password'}
+                                onChange={handlePassword}
+                                className="form-control"
+                                placeholder="Enter your password"
+                            />
+                            {passwordVisible ? (
+                                <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
+                            ) : (
+                                <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
+                            )}
+                            {passwordError && <p className="text-danger">{passwordError}</p>}
                         </div>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <div className="confirm-password-container form-group">
+                            <label>Confirm password:</label>
+                            <input
+                                type={passwordVisible ? 'text' : 'password'}
+                                onChange={handleConfirmPassword}
+                                className="form-control"
+                                placeholder="Enter your password again"
+                            />
+                            {passwordVisible ? (
+                                <EyeInvisibleFilled className="password-toggle-icon" onClick={() => setPasswordVisible(false)} />
+                            ) : (
+                                <EyeFilled className="password-toggle-icon" onClick={() => setPasswordVisible(true)} />
+                            )}
+                            {confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>}
+                        </div>
                     </div>
                     <button onClick={handleSubmit} className="btn orange-btn mt-3 w-100">Create Account</button>
                 </form>
@@ -287,8 +298,6 @@ const Registerpage = () => {
                 <div className="login-link">
                     Already have an account? <a href="/Login">Login</a>
                 </div>
-
-
             </div>
             <div className='register-slider-container'>
                 <Slider {...settings}>
@@ -304,7 +313,7 @@ const Registerpage = () => {
                 </Slider>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Registerpage
+export default Registerpage;

@@ -50,7 +50,7 @@ form {
     flex: 1;
     max-width: 400px;
     height: 600px;
-    margin-left: -500px; /* Reduced margin to bring form and slider closer */
+    margin-left: -500px; 
 }
 
 .register-slider-container img {
@@ -81,31 +81,6 @@ form {
 .text-danger {
     color: red;
     font-size: 12px;
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
-}
-
-.remember-me input {
-    margin-right: 5px;
-    width: 20px;
-    height: 18px;
-}
-
-.remember-me label {
-height: 15px;
-}
-
-.forgot-password {
-    color: #FF914D;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
 }
 
 .login-link {
@@ -150,12 +125,4 @@ height: 15px;
     margin-bottom: 20px;
     width: 100%;
     width: 600px;
-}
-
-.facebook-btn {
-    width: 48%;
-}
-
-.google-btn {
-    width: 48%;
 }

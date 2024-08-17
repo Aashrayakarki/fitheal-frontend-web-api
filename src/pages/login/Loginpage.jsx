@@ -1,30 +1,23 @@
-import React, { useState } from 'react'
-import { toast } from 'react-toastify'
-import { loginUserApi } from '../../apis/Api'
-import Slider from 'react-slick'
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { loginUserApi } from '../../apis/Api';
+import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Loginpage.css'
-import {EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
+import './Loginpage.css';
+import { EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined } from '@ant-design/icons';
 import { Button } from "antd";
-import { Navigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Loginpage = () => {
-
-    // Making a use sate
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const navigate = useNavigate(); // Initialize navigate function
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
-
-    // Making an error state
-    const [emailError, setEmailError] = useState('')
-    const [passwordError, setPasswordError] = useState('')
-
-
-    // validation
     const validation = () => {
         let isValid = true;
         if (email.trim() === '' || email.includes('@') === false || email.includes('.') === false) {
@@ -36,37 +29,36 @@ const Loginpage = () => {
             isValid = false;
         }
         return isValid;
-    }
+    };
 
-    // Making a function for submit button
     const handleSubmit = (e) => {
         e.preventDefault();
-
         var isValidated = validation();
         if (!isValidated) {
-            return
+            return;
         }
-
 
         const data = {
             "email": email,
             "password": password
-        }
+        };
 
         loginUserApi(data).then((res) => {
             if (res.data.success === false) {
-                toast.error(res.data.message)
+                toast.error(res.data.message);
             } else {
-                toast.success(res.data.message)
+                toast.success(res.data.message);
                 localStorage.setItem('token', res.data.token);
 
                 const convertedData = JSON.stringify(res.data.userData);
                 localStorage.setItem('userData', convertedData);
-            }
-        })
-    }
 
-    // Slider settings
+                // Redirect to home page after successful login
+                navigate('/'); // Use navigate to redirect
+            }
+        });
+    };
+
     const settings = {
         dots: true,
         infinite: true,
@@ -74,7 +66,6 @@ const Loginpage = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
-
 
     return (
         <div className='login-container'>
@@ -119,20 +110,6 @@ const Loginpage = () => {
                     Don't have an account? <a href="/register">Sign Up</a>
                 </div>
 
-                <div className="login-separator">
-                        <div className="line"></div>
-                        <div className="or-text">or login with</div>
-                        <div className="line"></div>
-                    </div>
-
-                    <div className="login-social-buttons">
-                        <Button type='primary' icon={<FacebookFilled/>} className="facebook-btn">
-                            Login with Facebook
-                        </Button>
-                        <Button icon={<GoogleOutlined />} className="google-btn">
-                            Login with Google
-                        </Button>
-                    </div>
                 
             </div>
             <div className="login-slider-container">
