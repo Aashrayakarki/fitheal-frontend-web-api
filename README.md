@@ -45,7 +45,7 @@ The frontend communicates with the backend via a RESTful API, handling operation
 
 ## Environment Variables
 
-- `REACT_APP_API_URL`: The base URL of the backend API.
+- `REACT_APP_API_URL`: "http://localhost:5000"
 
 ## Authors
 
