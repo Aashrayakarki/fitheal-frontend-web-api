@@ -1,106 +1,54 @@
-# FitHeal Frontend
+# FitHeal - Frontend
 
-Welcome to the frontend repository of the **FitHeal** application. FitHeal is a health and fitness platform designed to help users track their workouts, monitor their diet, and achieve their fitness goals.
+A React-based frontend for the FitHeal application, designed to help users manage their fitness routines, track their dietary habits, and monitor progress with ease. The platform provides tailored interfaces for both users and administrators (trainers, dietitians) to manage fitness plans, dietary recommendations, and user progress.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-This repository contains the frontend code for the FitHeal application. The frontend is responsible for the user interface and user experience, providing a seamless way for users to interact with their health and fitness data.
+[Watch the Demo Video](https://youtu.be/X10poHhC6zo)
 
 ## Features
 
-- **User Registration & Login:** Secure authentication flow using JWT.
-- **Responsive Design:** Optimized for both desktop and mobile devices.
-- **Workout Management:** Users can create, view, update, and delete their workout routines.
-- **Diet Tracking:** Users can manage their meal plans and monitor nutritional intake.
-- **Progress Visualization:** Charts and graphs to visualize user progress over time.
-- **API Integration:** Seamless communication with the backend for data persistence.
+### User Role
+
+- **Dashboard:** Personalized dashboard displaying workout stats, dietary insights, and progress tracking.
+- **Workout Management:** Browse, schedule, and log workouts, view detailed exercise plans.
+- **Diet Management:** Track daily meals, view nutritional breakdowns, and receive dietary recommendations.
+- **Progress Monitoring:** Visualize fitness progress with charts, graphs, and personalized insights.
+- **Profile Management:** Update personal details, set fitness goals, and manage account settings.
+
+### Admin Role (Trainer/Dietitian)
+
+- **Dashboard:** Overview of user activities, workout logs, and dietary adherence.
+- **User Management:** Access and manage user profiles, monitor progress, and adjust fitness/diet plans.
+- **Workout & Diet Plan Management:** Create, update, and assign workout routines and diet plans to users.
+- **Analytics & Reports:** Generate and review user progress reports, adherence rates, and overall fitness trends.
 
 ## Technologies
 
-- **React.js** - Frontend library for building user interfaces.
-- **Redux** - State management library for managing application state.
-- **Axios** - Promise-based HTTP client for making API requests.
-- **React Router** - For handling routing in the application.
-- **Material-UI** - UI component library for styling the application.
-- **Chart.js** - For visualizing data with charts and graphs.
+- **React.js:** Core frontend library for building user interfaces.
+- **Redux:** State management library for managing application state.
+- **Bootstrap:** UI styling framework for responsive design and layout.
 
-## Installation
+## API Integration
 
-To get the frontend of FitHeal up and running, follow these steps:
+The frontend communicates with the backend via a RESTful API, handling operations for both User and Admin roles. This includes managing workout routines, dietary plans, user profiles, and progress data.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/fitheal-frontend.git
-    cd fitheal-frontend
-    ```
+## Future Works
 
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
+- **Mobile Optimization:** Enhance responsiveness and usability on mobile devices to ensure a seamless experience.
+- **Multi-Language Support:** Add support for multiple languages to cater to a diverse user base.
+- **Advanced Analytics:** Integrate advanced analytics for admins to monitor user engagement, progress, and fitness trends.
 
-3. Set up the environment variables:
-   - Create a `.env` file in the root directory of the project.
-   - Add the following environment variables:
+## Challenges
 
-    ```
-    REACT_APP_API_BASE_URL=http://localhost:5000/api
-    ```
-
-4. Start the development server:
-    ```bash
-    npm start
-    ```
-
-    The application should now be running at `http://localhost:3000`.
+- **State Management:** Managing complex state logic across multiple user roles (User and Admin) was challenging but effectively handled with Redux.
+- **API Integration:** Ensuring smooth and secure API communication, especially with sensitive user data, required careful planning and thorough testing.
+- **Responsive Design:** Maintaining a consistent and user-friendly interface across different screen sizes was challenging but achieved through Bootstrap.
 
 ## Environment Variables
 
-The following environment variables need to be configured:
+- `REACT_APP_API_URL`: The base URL of the backend API.
 
-- `REACT_APP_API_BASE_URL`: The base URL of the backend API.
+## Authors
 
-## Usage
+- Aashraya Karki
 
-- **Home Page:** Displays an overview of the user’s fitness stats and progress.
-- **Workout Page:** Manage workouts, view past routines, and create new workout plans.
-- **Diet Page:** Track meals, manage diet plans, and view nutritional information.
-- **Progress Page:** View detailed progress reports with charts and graphs.
-
-## Folder Structure
-
-The project structure is organized as follows:
-
-```
-fitheal-frontend/
-│
-├── public/
-│   ├── index.html
-│   └── ...
-│
-├── src/
-│   ├── components/         # Reusable components
-│   ├── pages/              # Application pages
-│   ├── redux/              # Redux state management
-│   ├── services/           # API service functions
-│   ├── utils/              # Utility functions
-│   ├── App.js
-│   ├── index.js
-│   └── ...
-│
-├── .env                    # Environment variables
-├── package.json            # Project dependencies
-└── README.md               # Project documentation
-```
+## Appendix
