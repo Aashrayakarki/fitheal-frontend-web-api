@@ -8,23 +8,19 @@ A React-based frontend for the FitHeal application, designed to help users manag
 
 ### User Role
 
-- **Dashboard:** Personalized dashboard displaying workout stats, dietary insights, and progress tracking.
-- **Workout Management:** Browse, schedule, and log workouts, view detailed exercise plans.
-- **Diet Management:** Track daily meals, view nutritional breakdowns, and receive dietary recommendations.
-- **Progress Monitoring:** Visualize fitness progress with charts, graphs, and personalized insights.
-- **Profile Management:** Update personal details, set fitness goals, and manage account settings.
+- **Exercise Management:** Browse and view detailed exercise plans.
+- **Meal plan Management:** View nutritional breakdowns and receive dietary recommendations.
+- **Profile Management:** Update personal details and manage account settings.
 
 ### Admin Role (Trainer/Dietitian)
 
-- **Dashboard:** Overview of user activities, workout logs, and dietary adherence.
-- **User Management:** Access and manage user profiles, monitor progress, and adjust fitness/diet plans.
-- **Workout & Diet Plan Management:** Create, update, and assign workout routines and diet plans to users.
-- **Analytics & Reports:** Generate and review user progress reports, adherence rates, and overall fitness trends.
+- **Dashboard:** Overview of user activities.
+- **User Management:** Access and manage user profiles and adjust fitness/meal plans.
+- **Workout & Diet Plan Management:** Create, update, and  delete workout exercises and meal plans.
 
 ## Technologies
 
 - **React.js:** Core frontend library for building user interfaces.
-- **Redux:** State management library for managing application state.
 - **Bootstrap:** UI styling framework for responsive design and layout.
 
 ## API Integration
