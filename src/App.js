@@ -19,6 +19,7 @@ import Navbar from './components/Navbar/Navbar';
 import UserNavbar from './components/user_navbar/UserNavbar';
 import DefaultNavbar from './components/default_navbar/DefaultNavbar'; 
 import UserExercise from './pages/user/exercise_user/ExerciseUser';
+import MealUser from './pages/user/meal_user/MealUser';
 
 function App() {
   // Get user data from localStorage
@@ -50,6 +51,7 @@ function App() {
         <Route path='/forgot_password' element={<ForgotPassword />} />
         <Route path='/update_profile/:_id' element={<UpdateProfile />} />
         <Route path='/user_exercise' element={<UserExercise />} />
+        <Route path='/user_meal' element={<MealUser />} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes />}>

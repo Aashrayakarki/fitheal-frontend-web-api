@@ -29,7 +29,7 @@ const UserExercise = () => {
 
     return (
         <div className='container mt-3'>
-            <h2>All Exercises</h2>
+            <h2>Exercise Workouts</h2>
             
             <div className="filter-section mb-3">
                 <label htmlFor="levelFilter" className="form-label">Filter by Level:</label>
