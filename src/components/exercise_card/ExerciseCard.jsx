@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ExerciseCard.css';
+import { FaBurn, FaClock, FaInfoCircle } from 'react-icons/fa';
 
 const ExerciseCard = ({ exerciseInformation, color }) => {
     const [showModal, setShowModal] = useState(false);
@@ -22,11 +23,11 @@ const ExerciseCard = ({ exerciseInformation, color }) => {
                 <div className="card-body">
                     <div className='d-flex justify-content-between'>
                         <h5 className="card-title">{exerciseInformation.exerciseName}</h5>
-                        <h5 className="card-title text-danger">{exerciseInformation.exerciseCalories} cal</h5>
+                        <h5 className="card-title text-danger"><FaBurn/> {exerciseInformation.exerciseCalories} cal</h5>
                     </div>
-                    <p className="card-text">{exerciseInformation.exerciseTime} minutes</p>
+                    <p className="card-text"><FaClock/> {exerciseInformation.exerciseTime} minutes</p>
                     <button className="btn btn-outline-dark w-100" onClick={handleShowModal}>
-                        Details
+                        <FaInfoCircle/> Details
                     </button>
                 </div>
             </div>

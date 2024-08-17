@@ -4,33 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate sending message
-    setTimeout(() => {
-      toast.success('Message sent successfully!');
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-    }, 500); // Simulate an API call delay
-  };
-
   return (
     <div className='contact-us'>
       <section className='contact-section'>
@@ -52,26 +25,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className='contact-form'>
-          <h3>Contact Form</h3>
-          <form onSubmit={handleSubmit}>
-            <div className='form-group'>
-              <label htmlFor='name'>Name</label>
-              <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} required />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='email'>Email</label>
-              <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} required />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='message'>Message</label>
-              <textarea id='message' name='message' rows='5' value={formData.message} onChange={handleChange} required></textarea>
-            </div>
-            <button type='submit'>Send Message</button>
-          </form>
-        </div>
       </section>
-      <ToastContainer />
     </div>
   );
 };

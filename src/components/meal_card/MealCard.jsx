@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MealCard.css';
+import { FaClock, FaInfoCircle } from 'react-icons/fa';
 
 const MealCard = ({ mealInformation }) => {
     const [showModal, setShowModal] = useState(false);
@@ -18,7 +19,7 @@ const MealCard = ({ mealInformation }) => {
                 <div className="card-body">
                     <div className="d-flex justify-content-between">
                         <h5 className="card-title">{mealInformation.mealName}</h5>
-                        <h5 className="card-title text-danger">{mealInformation.mealTime} minutes</h5>
+                        <h5 className="card-title text-danger"><FaClock/> {mealInformation.mealTime} minutes</h5>
                     </div>
 
                     <div className="d-flex justify-content-between">
@@ -36,7 +37,7 @@ const MealCard = ({ mealInformation }) => {
                         </div>
                     </div>
                     <button className="btn btn-outline-dark w-100 mt-2" onClick={handleShowModal}>
-                        Details
+                        <FaInfoCircle/> Details
                     </button>
                 </div>
             </div>

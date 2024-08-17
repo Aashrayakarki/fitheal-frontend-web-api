@@ -1,22 +1,28 @@
+/* Centering the profile container */
 .profile-container {
     max-width: 600px;
+    margin: 0 auto; 
+    padding: 20px;  
 }
 
+/* Profile card styling */
 .profile-card {
     border-radius: 10px;
     border: 1px solid #ccc;
+    padding: 20px; 
 }
 
+/* Profile info styling */
 .profile-info {
     display: flex;
     align-items: center;
+    margin-bottom: 10px; 
 }
 
 .profile-info .icon {
     color: orange;
     font-size: 20px;
     margin-right: 8px; 
-
 }
 
 .profile-info p {
@@ -24,13 +30,16 @@
     font-size: 16px;
 }
 
+/* Button styling */
 .btn-primary {
-    background-color:orange;
+    background-color: orange;
     border-color: orange;
     padding: 10px 20px;
+    color: white; 
+    border-radius: 5px; 
 }
 
 .btn-primary:hover {
-    background-color: orange;
-    border-color: orange;
+    background-color: darkorange; 
+    border-color: darkorange;
 }
