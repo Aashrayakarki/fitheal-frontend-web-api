@@ -50,5 +50,3 @@ The frontend communicates with the backend via a RESTful API, handling operation
 ## Authors
 
 - Aashraya Karki
-
-## Appendix
