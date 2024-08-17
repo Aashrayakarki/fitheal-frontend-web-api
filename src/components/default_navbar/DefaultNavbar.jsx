@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserNavbar = () => {
+const DefaultNavbar = () => {
     const user = JSON.parse(localStorage.getItem('userData'));
 
     // Logout function
@@ -22,9 +22,6 @@ const UserNavbar = () => {
                         <ul className="navbar-nav">
                             <li className="nav-item me-5">
                                 <a className="nav-link custom-nav-link" href='/'>Home</a>
-                            </li>
-                            <li className="nav-item me-5">
-                                <a className="nav-link custom-nav-link" href="/user_exercise">Exercises</a>
                             </li>
                             <li className="nav-item me-5">
                                 <a className="nav-link custom-nav-link" href="/contact-us">Contact Us</a>
@@ -63,4 +60,4 @@ const UserNavbar = () => {
     );
 };
 
-export default UserNavbar;
+export default DefaultNavbar;

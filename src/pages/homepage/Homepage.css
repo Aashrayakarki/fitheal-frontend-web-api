@@ -8,20 +8,22 @@
 }
 
 .pagination .page-item .page-link {
-    color: white; /* Number color */
+    color: black; /* Number color */
     background-color: orange; /* Number background color */
-    border-color: white; /* Number border color */
+    border-color: black; /* Number border color */
     transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .pagination .page-item .page-link:hover {
-    background-color: white; /* Hover background color */
+    background-color: black; /* Hover background color */
     color: orange; /* Hover text color */
 }
 
 .pagination .page-item.active .page-link {
-    background-color: orange; /* Active background color */
-    border-color: white; /* Active border color */
+    background-color: black; /* Active background color */
+    border-color: black; /* Active border color */
     color: white; /* Active text color */
 }
+
+
 

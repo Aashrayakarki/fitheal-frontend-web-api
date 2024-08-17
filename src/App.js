@@ -17,22 +17,30 @@ import ForgotPassword from './pages/forgot_password/ForgotPassword';
 import UpdateProfile from './pages/Profile/UpdateProfile';
 import Navbar from './components/Navbar/Navbar';
 import UserNavbar from './components/user_navbar/UserNavbar';
-import MyExercise from './pages/MyExercise/MyExercise';
+import DefaultNavbar from './components/default_navbar/DefaultNavbar'; 
+import UserExercise from './pages/user/exercise_user/ExerciseUser';
 
 function App() {
   // Get user data from localStorage
   const user = JSON.parse(localStorage.getItem('userData'));
 
-  // Define which navbar should be displayed based on user's admin status
+  // Define which navbar should be displayed based on user's login and admin status
   const isAdmin = user && user.isAdmin;
+  const isLoggedIn = !!user; // Check if the user is logged in
 
   return (
     <Router>
       <ToastContainer />
-      
-      {/* Render the appropriate navbar based on the user's admin status */}
-      {isAdmin ? <Navbar /> : <UserNavbar />}
-      
+
+      {/* Render the appropriate navbar based on the user's status */}
+      {isAdmin ? (
+        <Navbar />
+      ) : isLoggedIn ? (
+        <UserNavbar />
+      ) : (
+        <DefaultNavbar />
+      )}
+
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/register' element={<Registerpage />} />
@@ -41,7 +49,7 @@ function App() {
         <Route path='/get_single_user/:_id' element={<ProfilePage />} />
         <Route path='/forgot_password' element={<ForgotPassword />} />
         <Route path='/update_profile/:_id' element={<UpdateProfile />} />
-        <Route path='/my_exercise' element={<MyExercise />} />
+        <Route path='/user_exercise' element={<UserExercise />} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes />}>
