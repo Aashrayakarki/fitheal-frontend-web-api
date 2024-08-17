@@ -1,0 +1,34 @@
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info .icon {
+    color: orange;
+    font-size: 20px;
+}
+
+.profile-info p {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color:orange;
+    border-color: orange;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: orange;
+    border-color: orange;
+}

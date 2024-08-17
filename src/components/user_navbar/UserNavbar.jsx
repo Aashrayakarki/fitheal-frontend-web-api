@@ -24,6 +24,9 @@ const UserNavbar = () => {
                                 <a className="nav-link custom-nav-link" href='/'>Home</a>
                             </li>
                             <li className="nav-item me-5">
+                                <a className="nav-link custom-nav-link" href="/my_exercise">My Exercises</a>
+                            </li>
+                            <li className="nav-item me-5">
                                 <a className="nav-link custom-nav-link" href="/contact-us">Contact Us</a>
                             </li>
                         </ul>

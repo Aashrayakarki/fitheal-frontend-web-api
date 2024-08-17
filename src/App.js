@@ -15,10 +15,9 @@ import ProfilePage from './pages/Profile/Profilepage';
 import AdminRoutes from './protected_routes/AdminRoutes';
 import ForgotPassword from './pages/forgot_password/ForgotPassword';
 import UpdateProfile from './pages/Profile/UpdateProfile';
-import ExerciseUser from './pages/user/exercise_user/ExerciseUser';
-import UserRoutes from './protected_routes/UserRoutes';
 import Navbar from './components/Navbar/Navbar';
 import UserNavbar from './components/user_navbar/UserNavbar';
+import MyExercise from './pages/MyExercise/MyExercise';
 
 function App() {
   // Get user data from localStorage
@@ -42,6 +41,7 @@ function App() {
         <Route path='/get_single_user/:_id' element={<ProfilePage />} />
         <Route path='/forgot_password' element={<ForgotPassword />} />
         <Route path='/update_profile/:_id' element={<UpdateProfile />} />
+        <Route path='/my_exercise' element={<MyExercise />} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes />}>
@@ -51,11 +51,6 @@ function App() {
           {/* Meal Plan Admin routes */}
           <Route path='/admin/meal' element={<MealplanAdmin />} />
           <Route path='/admin/update_meal/:id' element={<UpdateMeal />} />
-        </Route>
-
-        {/* User routes */}
-        <Route element={<UserRoutes />}>
-          <Route path='user/exercise' element={<ExerciseUser />} />
         </Route>
       </Routes>
       <Footer />

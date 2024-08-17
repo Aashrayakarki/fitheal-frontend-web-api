@@ -7,6 +7,7 @@ const ExerciseCard = ({ exerciseInformation, color }) => {
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
+    
     return (
         <div>
             <div className="card custom-card" style={{ width: '18rem' }}>
@@ -32,11 +33,14 @@ const ExerciseCard = ({ exerciseInformation, color }) => {
 
             {/* Modal */}
             {showModal && (
-                <div className="modal show d-block" tabIndex="-1" role="dialog">
+                <div className="modal show d-block" tabIndex="-1" role="dialog" aria-labelledby="exerciseVideoModalLabel">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title">{exerciseInformation.exerciseName} Video</h5>
+                                <h5 id="exerciseVideoModalLabel" className="modal-title">{exerciseInformation.exerciseName} Video</h5>
+                                <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div className="modal-body">
                                 <video width="100%" controls>

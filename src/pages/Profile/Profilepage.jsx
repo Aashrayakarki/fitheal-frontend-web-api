@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSingleUser } from '../../apis/Api';
+import { FaUser, FaBirthdayCake, FaVenusMars, FaArrowsAltV, FaWeight } from 'react-icons/fa';
+import './Profilepage.css';
 
 const ProfilePage = () => {
     const { _id } = useParams();
@@ -29,70 +31,64 @@ const ProfilePage = () => {
     }, [_id]);
 
     return (
-        <div className="container mt-3">
-            <h2>Profile Details</h2>
-            <div className="profile-details">
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input
-                        value={fname}
-                        className="form-control"
-                        type="text"
-                        readOnly
-                    />
-                </div>
+        <div className="container mt-5">
+            <div className="card shadow-sm p-4">
+                <h2 className="text-center mb-4">{fname}{lname}</h2>
+                <div className="profile-details row">
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaUser className="icon mr-2" />
+                            <strong>First Name: </strong>
+                            <p className="ml-2"> {fname}</p>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Last Name</label>
-                    <input
-                        value={lname}
-                        className="form-control"
-                        type="text"
-                        readOnly
-                    />
-                </div>
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaUser className="icon mr-2" />
+                            <strong>Last Name: </strong>
+                            <p className="ml-2">{lname}</p>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Age</label>
-                    <input
-                        value={age}
-                        className="form-control"
-                        type="number"
-                        readOnly
-                    />
-                </div>
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaBirthdayCake className="icon mr-2" />
+                            <strong>Age: </strong>
+                            <p className="ml-2">{age}</p>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Gender</label>
-                    <input
-                        value={gender}
-                        className="form-control"
-                        type="text"
-                        readOnly
-                    />
-                </div>
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaVenusMars className="icon mr-2" />
+                            <strong>Gender: </strong>
+                            <p className="ml-2">{gender}</p>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Height (cm)</label>
-                    <input
-                        value={height}
-                        className="form-control"
-                        type="number"
-                        readOnly
-                    />
-                </div>
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaArrowsAltV className="icon mr-2" />
+                            <strong>Height: </strong>
+                            <p className="ml-2">{height} cm</p>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Weight (kg)</label>
-                    <input
-                        value={weight}
-                        className="form-control"
-                        type="number"
-                        readOnly
-                    />
+                    <div className="col-md-6 mb-3">
+                        <div className="profile-info">
+                            <FaWeight className="icon mr-2" />
+                            <strong>Weight: </strong>
+                            <p className="ml-2">{weight} kg</p>
+                        </div>
+                    </div>
+
+                    <div className="col-12 text-center mt-4">
+                        <Link to={`/update_profile/${_id}`} className="btn orange-btn btn-lg">
+                            Update Profile
+                        </Link>
+                    </div>
                 </div>
-                
-                <Link to={`/update_profile/${_id}`} className="btn btn-primary mt-3">Update Profile</Link>
             </div>
         </div>
     );
