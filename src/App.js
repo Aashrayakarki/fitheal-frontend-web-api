@@ -21,6 +21,7 @@ import DefaultNavbar from './components/default_navbar/DefaultNavbar';
 import UserExercise from './pages/user/exercise_user/ExerciseUser';
 import MealUser from './pages/user/meal_user/MealUser';
 import TermsConditions from './pages/terms_and_conditions/TermsConditions';
+import PrivacyPolicy from './pages/privacy_policy/PrivacyPolicy';
 
 function App() {
   // Get user data from localStorage
@@ -54,6 +55,7 @@ function App() {
         <Route path='/user_exercise' element={<UserExercise />} />
         <Route path='/user_meal' element={<MealUser />} />
         <Route path='/terms_and_conditions' element={<TermsConditions />} />
+        <Route path='/privacy_policy' element={<PrivacyPolicy />} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes />}>

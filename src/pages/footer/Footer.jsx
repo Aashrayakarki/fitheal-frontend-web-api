@@ -27,7 +27,7 @@ const Footer = () => {
                             <p>Terms and Conditions</p>
                         </a>
 
-                        <a href='/privacy-policy'>
+                        <a href='/privacy_policy'>
                             <p>Privacy Policy</p>
                         </a>
                     </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                     </div>
                     <div className='sb__footer-below-links'>
                         <a href="/terms_and_conditions"><div><p>Terms & Conditions</p></div></a>
-                        <a href="/privacy"><div><p>Privacy</p></div></a>
+                        <a href="/privacy_policy"><div><p>Privacy</p></div></a>
                         <a href="/security"><div><p>Security</p></div></a>
                     </div>
                 </div>

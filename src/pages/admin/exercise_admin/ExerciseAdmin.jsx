@@ -30,10 +30,18 @@ const ExerciseAdmin = () => {
     const [exerciseVideo, setExerciseVideo] = useState('');
     const [previewVideo, setPreviewVideo] = useState('');
 
+    const [exerciseInstruction, setExerciseInstruction] = useState('');
+    const [previewInstruction, setPreviewInstruction] = useState('');
+
     const [exerciseName, setExerciseName] = useState('');
     const [exerciseCalories, setExerciseCalories] = useState('');
     const [exerciseTime, setExerciseTime] = useState('');
     const [exerciseLevel, setExerciseLevel] = useState('');
+    const [exerciseReps, setExerciseReps] = useState('');
+    const [exerciseSets, setExerciseSets] = useState('');
+    const [exerciseDescription, setExerciseDescription] = useState('');
+
+
 
     const handleThumbnail = (e) => {
         const file = e.target.files[0];
@@ -47,6 +55,12 @@ const ExerciseAdmin = () => {
         setPreviewVideo(URL.createObjectURL(file));
     };
 
+    const handleInstruction = (e) => {
+        const file = e.target.files[0];
+        setExerciseInstruction(file);
+        setPreviewInstruction(URL.createObjectURL(file));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -55,6 +69,10 @@ const ExerciseAdmin = () => {
         formData.append('exerciseCalories', exerciseCalories);
         formData.append('exerciseTime', exerciseTime);
         formData.append('exerciseLevel', exerciseLevel);
+        formData.append('exerciseReps', exerciseReps);
+        formData.append('exerciseSets', exerciseSets);
+        formData.append('exerciseDescription', exerciseDescription);
+        formData.append('exerciseInstruction', exerciseInstruction);
         formData.append('exerciseThumbnail', exerciseThumbnail);
         formData.append('exerciseVideo', exerciseVideo);
 
@@ -165,6 +183,17 @@ const ExerciseAdmin = () => {
                                         <option value="Advanced">Advanced</option>
                                         <option value="Elite">Elite</option>
                                     </select>
+                                    <label className='mt-2'>Exercise Reps</label>
+                                    <input onChange={(e) => setExerciseReps(e.target.value)} type="number" className='form-control' placeholder='Enter exercise reps'></input>
+                                    <label className='mt-2'>Exercise Sets</label>
+                                    <input onChange={(e) => setExerciseSets(e.target.value)} type="number" className='form-control' placeholder='Enter exercise sets'></input>
+                                    <label className='mt-2'>Exercise Description</label>
+                                    <textarea onChange={(e) => setExerciseDescription(e.target.value)} className='form-control' placeholder='Enter exercise description'></textarea>
+                                    <label className='mt-2'>Choose exercise Instruction</label>
+                                    <input onChange={handleInstruction} type='file' className='form-control' />
+                                    {
+                                        previewInstruction && <img src={previewInstruction} className='img-fluid rounded mt-2' alt='Preview'></img>
+                                    }
                                     <label className='mt-2'>Choose exercise Thumbnail</label>
                                     <input onChange={handleThumbnail} type='file' className='form-control' />
                                     {
