@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# FitHeal - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend for the FitHeal application, designed to help users manage their fitness routines, track their dietary habits, and monitor progress with ease. The platform provides tailored interfaces for both users and administrators (trainers, dietitians) to manage fitness plans, dietary recommendations, and user progress.
 
-## Available Scripts
+[Watch the Demo Video](https://youtu.be/X10poHhC6zo)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### User Role
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Exercise Management:** Browse and view detailed exercise plans.
+- **Meal plan Management:** View nutritional breakdowns and receive dietary recommendations.
+- **Profile Management:** Update personal details and manage account settings.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Admin Role (Trainer/Dietitian)
 
-### `npm test`
+- **Dashboard:** Overview of user activities.
+- **User Management:** Access and manage user profiles and adjust fitness/meal plans.
+- **Workout & Diet Plan Management:** Create, update, and  delete workout exercises and meal plans.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- **React.js:** Core frontend library for building user interfaces.
+- **Bootstrap:** UI styling framework for responsive design and layout.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Integration
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend communicates with the backend via a RESTful API, handling operations for both User and Admin roles. This includes managing workout routines, dietary plans, user profiles, and progress data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Works
 
-### `npm run eject`
+- **Mobile Optimization:** Enhance responsiveness and usability on mobile devices to ensure a seamless experience.
+- **Multi-Language Support:** Add support for multiple languages to cater to a diverse user base.
+- **Advanced Analytics:** Integrate advanced analytics for admins to monitor user engagement, progress, and fitness trends.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Challenges
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **State Management:** Managing complex state logic across multiple user roles (User and Admin) was challenging but effectively handled with Redux.
+- **API Integration:** Ensuring smooth and secure API communication, especially with sensitive user data, required careful planning and thorough testing.
+- **Responsive Design:** Maintaining a consistent and user-friendly interface across different screen sizes was challenging but achieved through Bootstrap.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `REACT_APP_API_URL`: "http://localhost:5000"
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Aashraya Karki
