@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
 import './MealCard.css';
-import { FaClock, FaInfoCircle } from 'react-icons/fa';
+import { FaClock} from 'react-icons/fa';
 
 const MealCard = ({ mealInformation }) => {
-    const [showModal, setShowModal] = useState(false);
-
-    const handleShowModal = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
-
     return (
         <div>
             <div className="card custom-card" style={{ width: '18rem' }}>
@@ -36,54 +30,8 @@ const MealCard = ({ mealInformation }) => {
                             <span>carbs</span>
                         </div>
                     </div>
-                    <button className="btn btn-outline-dark w-100 mt-2" onClick={handleShowModal}>
-                        <FaInfoCircle/> Details
-                    </button>
                 </div>
             </div>
-
-            {showModal && (
-                <div className="modal show d-block" tabIndex="-1" role="dialog">
-                    <div className="modal-dialog modal-lg" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{mealInformation.mealName}</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="modal-body-content">
-                                    <img 
-                                        src={`http://localhost:5000/products/${mealInformation.mealImage}`} 
-                                        className="modal-img" 
-                                        alt={mealInformation.mealName}
-                                    />
-                                    <div className="modal-description">
-                                        <p>{mealInformation.mealDescription}</p>
-                                        <div className="nutritional-info">
-                                            <div className="info-item">
-                                                <h6>Proteins:</h6>
-                                                <p>{mealInformation.mealProteins}g</p>
-                                            </div>
-                                            <div className="info-item">
-                                                <h6>Calories:</h6>
-                                                <p>{mealInformation.mealCalories}</p>
-                                            </div>
-                                            <div className="info-item">
-                                                <h6>Carbs:</h6>
-                                                <p>{mealInformation.mealCarbs}g</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>        
     );
 };

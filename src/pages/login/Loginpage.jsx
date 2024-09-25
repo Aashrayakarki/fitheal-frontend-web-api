@@ -5,15 +5,13 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Loginpage.css';
-import { EyeFilled, EyeInvisibleFilled, FacebookFilled, GoogleOutlined } from '@ant-design/icons';
-import { Button } from "antd";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom'; 
 
 const Loginpage = () => {
-    const navigate = useNavigate(); // Initialize navigate function
+    const navigate = useNavigate(); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -53,8 +51,7 @@ const Loginpage = () => {
                 const convertedData = JSON.stringify(res.data.userData);
                 localStorage.setItem('userData', convertedData);
 
-                // Redirect to home page after successful login
-                navigate('/'); // Use navigate to redirect
+                navigate('/'); 
             }
         });
     };

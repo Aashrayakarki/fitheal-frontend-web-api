@@ -1,4 +1,4 @@
-const MealMockData = 
+const mealMockData = 
     {
         "success": true,
         "message": "Meals fetched successfully",
@@ -55,4 +55,4 @@ const MealMockData =
         }
     }
 
-module.exports = MealMockData;
+module.exports = mealMockData;
